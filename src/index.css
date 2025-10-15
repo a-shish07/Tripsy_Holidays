@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background-color: theme('colors.night');
+}
+
+body {
+  @apply bg-night text-white font-body antialiased;
+}
+
+a {
+  @apply font-medium text-ocean hover:text-primary transition-colors;
+}
