@@ -3,7 +3,7 @@ import SectionHeading from '../components/SectionHeading';
 
 const quickLinks = [
   { label: 'About', href: '#experience' },
-  { label: 'Destinations', href: '#destinations' },
+  // { label: 'Destinations', href: '#destinations' },
   { label: 'Packages', href: '#packages' },
   { label: 'Services', href: '#services' },
   { label: 'Testimonials', href: '#testimonials' },
@@ -45,13 +45,13 @@ function Footer({ currentYear }) {
             />
           </div>
           <div>
-            <h4 className="text-sm uppercase tracking-[0.35em] text-white/40">Quick Links</h4>
+            <h4 className="text-sm uppercase  text-white/40">Quick Links</h4>
             <ul className="mt-6 space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm uppercase tracking-[0.35em] text-white/60 transition hover:text-white"
+                    className="text-sm uppercase  text-white/60 transition hover:text-white"
                   >
                     {link.label}
                   </a>
@@ -60,13 +60,13 @@ function Footer({ currentYear }) {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm uppercase tracking-[0.35em] text-white/40">Follow Us</h4>
+            <h4 className="text-sm uppercase  text-white/40">Follow Us</h4>
             <ul className="mt-6 space-y-3">
               {socials.map((social) => (
                 <li key={social.label}>
                   <a
                     href={social.href}
-                    className="text-sm uppercase tracking-[0.35em] text-white/60 transition hover:text-white"
+                    className="text-sm uppercase  text-white/60 transition hover:text-white"
                   >
                     {social.label} {social.handle}
                   </a>

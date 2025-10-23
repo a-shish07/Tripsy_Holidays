@@ -1,37 +1,39 @@
 import { useMemo } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import HeroSection from './sections/HeroSection';
-import ExperienceSection from './sections/ExperienceSection';
-import DestinationsSection from './sections/DestinationsSection';
-import PackagesSection from './sections/PackagesSection';
-import ServicesSection from './sections/ServicesSection';
-import TestimonialsSection from './sections/TestimonialsSection';
-import WhyChooseUsSection from './sections/WhyChooseUsSection';
-import CallToActionSection from './sections/CallToActionSection';
-import BlogSection from './sections/BlogSection';
-import NewsletterSection from './sections/NewsletterSection';
 import Footer from './sections/Footer';
+
+import HomePage from './pages/HomePage';
+import ExperiencePage from './pages/ExperiencePage';
+import DestinationsPage from './pages/DestinationsPage';
+import PackageDetailPage from './pages/PackageDetailPage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
+import TestimonialsPage from './pages/TestimonialsPage';
+import BlogPage from './pages/BlogPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   const year = useMemo(() => new Date().getFullYear(), []);
 
   return (
-    <div className="bg-night font-body text-white">
-      <Navigation />
-      <main className="pt-32">
-        <HeroSection />
-        <ExperienceSection />
-        <DestinationsSection />
-        <PackagesSection />
-        <ServicesSection />
-        <TestimonialsSection />
-        <WhyChooseUsSection />
-        <CallToActionSection />
-        <BlogSection />
-        <NewsletterSection />
-      </main>
-      <Footer currentYear={year} />
-    </div>
+    <Router>
+      <div className="bg-night font-body text-white">
+        <Navigation />
+        <main className="pt-32">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/experience" element={<ExperiencePage />} />
+            <Route path="/destinations" element={<DestinationsPage />} />
+            <Route path="/packages" element={<PackageDetailPage />} />
+            <Route path="/services" element={<ServiceDetailPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer currentYear={year} />
+      </div>
+    </Router>
   );
 }
 
