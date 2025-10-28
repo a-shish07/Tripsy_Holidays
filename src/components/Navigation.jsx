@@ -1,86 +1,106 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import clsx from 'classnames';
 import Button from './Button';
+import { packages } from '../data/packages';
+import { services } from '../data/services';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Experience', href: '/experience' },
-  // { label: 'Destinations', href: '/destinations' },
+  { label: 'About', href: '/about' },
 ];
 
-const servicesMenu = [
-  { label: 'Domestic Tours', href: '/services' },
-  { label: 'International Tours', href: '/services' },
-  { label: 'Spiritual Tours', href: '/services' },
-  { label: 'Corporate Travels', href: '/services' },
-  { label: 'Fixed Departure', href: '/services' },
-  { label: 'Hotel Booking', href: '/services' },
-  { label: 'Air Ticketing', href: '/services' },
-  { label: 'Adventures Tours', href: '/services' },
-  { label: 'Honeymoon Packages', href: '/services' },
+const getServicesMenu = () => [
+  { label: 'Domestic Tour Package', id: 1 },
+  { label: 'International Tour Package', id: 2 },
+  { label: 'Spiritual Tours', id: 3 },
+  { label: 'Corporate Travels', id: 4 },
+  { label: 'Fixed Departure', id: 5 },
+  { label: 'Hotel Booking', id: 6 },
+  { label: 'Air Ticketing', id: 7 },
+  { label: 'Adventure Tours', id: 8 },
+  { label: 'Honeymoon Package', id: 9 },
 ];
 
-const packagesMenu = [
-  {
-    category: 'Domestic Tour Packages',
-    items: [
-      { label: 'Uttarakhand Packages', href: '/packages' },
-      { label: 'Himachal Packages', href: '/packages' },
-      { label: 'Kashmir Packages', href: '/packages' },
-      { label: 'Rajasthan Packages', href: '/packages' },
-      { label: 'Kerala Packages', href: '/packages' },
-      { label: 'Ladakh Packages', href: '/packages' },
-      { label: 'Gujarat Packages', href: '/packages' },
-      { label: 'Northeast Packages', href: '/packages' },
-      { label: 'Goa Packages', href: '/packages' },
-      { label: 'Lakshadweep Packages', href: '/packages' },
-      { label: 'Uttar Pradesh Packages', href: '/packages' },
-    ],
-  },
-  {
-    category: 'International Tour Packages',
-    items: [
-      { label: 'Bali Packages', href: '/packages' },
-      { label: 'Andaman Packages', href: '/packages' },
-      { label: 'Maldives Packages', href: '/packages' },
-      { label: 'Thailand Packages', href: '/packages' },
-      { label: 'Malaysia Packages', href: '/packages' },
-      { label: 'Dubai Packages', href: '/packages' },
-      { label: 'Sri Lanka Packages', href: '/packages' },
-      { label: 'Bhutan Packages', href: '/packages' },
-      { label: 'Nepal Packages', href: '/packages' },
-    ],
-  },
-  {
-    category: 'Spiritual Tour Packages',
-    items: [
-      { label: 'Kashi Tour Packages', href: '/packages' },
-      { label: 'Chardham Yatra', href: '/packages' },
-      { label: 'Chardham Yatra from Haridwar', href: '/packages' },
-      { label: 'Chardham Yatra from Delhi', href: '/packages' },
-      { label: 'Do Dhaam Yatra', href: '/packages' },
-      { label: 'Do Dhaam Yatra from Haridwar', href: '/packages' },
-      { label: 'Do Dhaam Yatra from Delhi', href: '/packages' },
-      { label: 'Kedarnath Yatra', href: '/packages' },
-      { label: 'Kedarnath Yatra from Haridwar', href: '/packages' },
-      { label: 'Kedarnath Yatra from Delhi', href: '/packages' },
-      { label: 'Amarnath Yatra', href: '/packages' },
-      { label: 'Kailash Mansarovar Packages', href: '/packages' },
-      { label: 'Kailash Mansarovar Parikarma from Kathmandu', href: '/packages' },
-    ],
-  },
-  {
-    category: 'Yatra tour by Helicopter',
-    items: [
-      { label: 'Chardham Yatra by Helicopter from Dehradun', href: '/packages' },
-      { label: 'Do Dhaam Yatra by Helicopter from Dehradun', href: '/packages' },
-      { label: 'Amarnath Yatra by Helicopter', href: '/packages' },
-      { label: 'Kailash Mansarovar Yatra by Helicopter', href: '/packages' },
-    ],
-  },
-];
+const getPackagesMenu = () => {
+  const domestic = packages.filter(p => p.category === 'Domestic');
+  const international = packages.filter(p => p.category === 'International');
+  const spiritual = packages.filter(p => p.category === 'Spiritual');
+
+  const spiritualGrouped = [
+    {
+      name: 'Kashi Spiritual Tour',
+      items: [
+        { label: spiritual.find(p => p.id === 24)?.name, id: 24 }
+      ]
+    },
+    {
+      name: 'Chardham Yatra',
+      items: [
+        { label: spiritual.find(p => p.id === 19)?.name, id: 19 },
+        { label: spiritual.find(p => p.id === 25)?.name, id: 25 },
+        { label: spiritual.find(p => p.id === 26)?.name, id: 26 }
+      ]
+    },
+    {
+      name: 'Do Dhaam Yatra',
+      items: [
+        { label: spiritual.find(p => p.id === 27)?.name, id: 27 },
+        { label: spiritual.find(p => p.id === 28)?.name, id: 28 },
+        { label: spiritual.find(p => p.id === 29)?.name, id: 29 }
+      ]
+    },
+    {
+      name: 'Kedarnath Yatra',
+      items: [
+        { label: spiritual.find(p => p.id === 30)?.name, id: 30 },
+        { label: spiritual.find(p => p.id === 31)?.name, id: 31 },
+        { label: spiritual.find(p => p.id === 32)?.name, id: 32 }
+      ]
+    },
+    {
+      name: 'Amarnath Yatra',
+      items: [
+        { label: spiritual.find(p => p.id === 21)?.name, id: 21 }
+      ]
+    },
+    {
+      name: 'Kailash Mansarovar',
+      items: [
+        { label: spiritual.find(p => p.id === 20)?.name, id: 20 },
+        { label: spiritual.find(p => p.id === 33)?.name, id: 33 }
+      ]
+    }
+  ];
+
+  const helicopterTours = [
+    { label: spiritual.find(p => p.id === 34)?.name, id: 34 },
+    { label: spiritual.find(p => p.id === 35)?.name, id: 35 },
+    { label: spiritual.find(p => p.id === 36)?.name, id: 36 },
+    { label: spiritual.find(p => p.id === 37)?.name, id: 37 }
+  ];
+
+  return [
+    {
+      category: 'Domestic Tour Packages',
+      items: domestic.map(p => ({ label: p.name, id: p.id })),
+    },
+    {
+      category: 'International Tour Packages',
+      items: international.map(p => ({ label: p.name, id: p.id })),
+    },
+    {
+      category: 'Spiritual Tour Packages',
+      subGroups: spiritualGrouped,
+    },
+    {
+      category: 'Helicopter Tours',
+      items: helicopterTours,
+    },
+  ];
+};
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,42 +125,49 @@ function Navigation() {
         isScrolled ? 'bg-night/90 shadow-[0_16px_48px_rgba(12,23,42,0.45)] backdrop-blur-xl' : 'bg-transparent',
       )}
     >
-      <div className="w-full px-4 py-4 md:px-8 lg:px-12">
-        <div className="flex items-center justify-between rounded-full border border-white/15 bg-night/75 px-5 py-3 shadow-[0_12px_35px_rgba(15,23,42,0.35)] backdrop-blur-2xl md:px-6">
-          <Link to="/" className="flex items-center gap-3">
+      <div className="w-full px-4 py-5 md:px-8 lg:px-12">
+        <div className="flex items-center justify-between rounded-2xl border border-white/20 bg-gradient-to-r from-night/80 to-night/70 px-6 py-3.5 shadow-[0_16px_40px_rgba(12,23,42,0.5)] backdrop-blur-3xl md:px-8 hover:shadow-[0_20px_50px_rgba(14,165,233,0.15)] transition-shadow duration-300">
+          <Link to="/" className="flex items-center gap-3 group">
             <img
               src="/logo.jpg"
               alt="Tripsy Holidays logo"
-              className="h-12 w-12 rounded-full border border-white/20 object-cover"
+              className="h-10 w-10 rounded-full border-2 border-ocean/40 object-cover shadow-lg group-hover:shadow-ocean/40 transition-all duration-300"
             />
-            <div className="leading-tight">
-              <span className="text-xs uppercase tracking-[0.35em] text-white/50">Tripsy Holidays</span>
+            <div className="leading-tight hidden sm:block">
+              <span className="text-xs uppercase tracking-[0.35em] text-ocean font-bold">Tripsy</span>
+              <span className="text-xs uppercase tracking-[0.35em] text-white/60 block">Holidays</span>
             </div>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
-              <Link
+              <motion.div
                 key={link.href}
-                to={link.href}
-                className="group relative px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                <span>{link.label}</span>
-                <span className="absolute inset-x-0 -bottom-2 h-px scale-x-0 bg-white/80 transition-transform duration-200 ease-out group-hover:scale-x-100" />
-              </Link>
+                <Link
+                  to={link.href}
+                  className="group relative px-6 py-2 text-sm font-display font-bold tracking-wider text-white/80 hover:text-ocean transition-colors duration-300"
+                >
+                  <span>{link.label}</span>
+                  <span className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 bg-gradient-to-r from-ocean to-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                </Link>
+              </motion.div>
             ))}
 
             <div className="relative group">
-              <button className="group relative px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white flex items-center gap-2">
+              <button className="group relative px-6 py-2 text-sm font-display font-bold tracking-wider text-white/80 hover:text-ocean transition-colors duration-300 flex items-center gap-2">
                 <span>Services</span>
-                <FaChevronDown className="text-xs transition-transform group-hover:rotate-180" />
+                <FaChevronDown className="text-xs transition-transform group-hover:rotate-180 duration-300" />
               </button>
-              <div className="absolute left-0 mt-0 w-48 rounded-lg border border-white/10 bg-night/95 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 backdrop-blur-xl">
-                {servicesMenu.map((item) => (
+              <div className="absolute left-0 mt-3 w-64 rounded-2xl border border-white/20 bg-gradient-to-br from-night/95 to-night/90 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-xl z-50 overflow-hidden">
+                {getServicesMenu().map((item) => (
                   <Link
-                    key={item.label}
-                    to={item.href}
-                    className="block px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 first:rounded-t-lg last:rounded-b-lg transition-colors"
+                    key={item.id}
+                    to={`/service/${item.id}`}
+                    className="block px-6 py-3.5 text-sm font-medium text-white/80 hover:text-ocean hover:bg-ocean/10 transition-all duration-200 border-b border-white/5 last:border-b-0 tracking-wide"
                   >
                     {item.label}
                   </Link>
@@ -149,50 +176,69 @@ function Navigation() {
             </div>
 
             <div className="relative group">
-              <button className="group relative px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white flex items-center gap-2">
+              <button className="group relative px-6 py-2 text-sm font-display font-bold tracking-wider text-white/80 hover:text-ocean transition-colors duration-300 flex items-center gap-2">
                 <span>Packages</span>
-                <FaChevronDown className="text-xs transition-transform group-hover:rotate-180" />
+                <FaChevronDown className="text-xs transition-transform group-hover:rotate-180 duration-300" />
               </button>
-              <div className="absolute left-0 mt-0 w-56 rounded-lg border border-white/10 bg-night/95 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 backdrop-blur-xl z-50 py-1">
-                {packagesMenu.map((category, idx) => (
-                  <div key={category.category} className="relative group/submenu">
-                    <button className="w-full text-left px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between">
+              <div className="absolute left-0 mt-3 w-72 rounded-2xl border border-white/20 bg-gradient-to-br from-night/95 to-night/90 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 backdrop-blur-xl z-50 overflow-visible">
+                {getPackagesMenu().map((category) => (
+                  <div key={category.category} className="relative group/submenu border-b border-white/5 last:border-b-0">
+                    <button className="w-full text-left px-6 py-3.5 text-sm text-white/80 hover:text-ocean hover:bg-ocean/10 transition-all duration-200 flex items-center justify-between font-semibold tracking-wide">
                       <span>{category.category}</span>
-                      <FaChevronDown className="text-xs" />
+                      <FaChevronDown className="text-xs transition-transform group-hover/submenu:rotate-90 duration-300" />
                     </button>
-                    <div className="absolute left-full top-0 w-64 rounded-lg border border-white/10 bg-night/95 shadow-lg opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 backdrop-blur-xl z-50 py-1 pointer-events-none group-hover/submenu:pointer-events-auto">
-                      {category.items.map((item) => (
-                        <Link
-                          key={item.label}
-                          to={item.href}
-                          className="block px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-colors first:rounded-t-lg last:rounded-b-lg"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                    <div className="absolute left-full top-0 ml-0 w-80 rounded-2xl border border-white/20 bg-gradient-to-br from-night/95 to-night/90 shadow-2xl opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-300 backdrop-blur-xl z-[60] overflow-hidden pointer-events-none group-hover/submenu:pointer-events-auto max-h-96 overflow-y-auto">
+                      {category.items ? (
+                        category.items.map((item) => (
+                          <Link
+                            key={item.id}
+                            to={`/package/${item.id}`}
+                            className="block px-6 py-3 text-sm text-white/80 hover:text-ocean hover:bg-ocean/10 transition-all duration-200 font-medium tracking-wide border-b border-white/5 last:border-b-0"
+                          >
+                            {item.label}
+                          </Link>
+                        ))
+                      ) : (
+                        category.subGroups?.map((group) => (
+                          <div key={group.name} className="border-b border-white/5 last:border-b-0">
+                            <div className="px-6 py-3 text-xs font-display font-bold text-ocean/90 bg-ocean/10 tracking-widest uppercase">
+                              {group.name}
+                            </div>
+                            {group.items.map((item) => (
+                              <Link
+                                key={item.id}
+                                to={`/package/${item.id}`}
+                                className="block px-8 py-2.5 text-sm text-white/80 hover:text-ocean hover:bg-ocean/10 transition-all duration-200 font-medium tracking-wide border-b border-white/5 last:border-b-0"
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </div>
+                        ))
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <Link to="/testimonials" className="group relative px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white">
+            <Link to="/testimonials" className="group relative px-6 py-2 text-sm font-display font-bold tracking-wider text-white/80 hover:text-ocean transition-colors duration-300">
               <span>Testimonials</span>
-              <span className="absolute inset-x-0 -bottom-2 h-px scale-x-0 bg-white/80 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+              <span className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 bg-gradient-to-r from-ocean to-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </Link>
 
-            <Link to="/blog" className="group relative px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white">
+            <Link to="/blog" className="group relative px-6 py-2 text-sm font-display font-bold tracking-wider text-white/80 hover:text-ocean transition-colors duration-300">
               <span>Blog</span>
-              <span className="absolute inset-x-0 -bottom-2 h-px scale-x-0 bg-white/80 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+              <span className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 bg-gradient-to-r from-ocean to-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </Link>
 
-            <Link to="/contact" className="group relative px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white">
+            <Link to="/contact" className="group relative px-6 py-2 text-sm font-display font-bold tracking-wider text-white/80 hover:text-ocean transition-colors duration-300">
               <span>Contact</span>
-              <span className="absolute inset-x-0 -bottom-2 h-px scale-x-0 bg-white/80 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+              <span className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 bg-gradient-to-r from-ocean to-primary transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </Link>
 
-            <Button variant="glow" size="sm" className="ml-4 tracking-[0.2em] uppercase">
-              Plan a Consultation
+            <Button variant="glow" size="sm" className="ml-6 tracking-[0.2em] uppercase font-bold">
+              Book Now
             </Button>
           </nav>
 
@@ -213,35 +259,43 @@ function Navigation() {
           isOpen ? 'max-h-[80vh] pb-6 opacity-100' : 'pointer-events-none max-h-0 opacity-0',
         )}
       >
-        <nav className="space-y-2 rounded-3xl border border-white/10 bg-night/90 px-6 py-6 backdrop-blur-xl overflow-y-auto max-h-[70vh]">
-          {navLinks.map((link) => (
-            <Link
+        <nav className="space-y-2 rounded-2xl border border-white/20 bg-gradient-to-br from-night/95 to-night/90 px-6 py-6 backdrop-blur-xl overflow-y-auto max-h-[70vh] shadow-2xl">
+          {navLinks.map((link, index) => (
+            <motion.div
               key={link.href}
-              to={link.href}
-              className="block px-4 py-2 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
-              onClick={() => setIsOpen(false)}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              whileHover={{ x: 5 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {link.label}
-            </Link>
+              <Link
+                to={link.href}
+                className="block px-5 py-3 text-base font-display font-bold tracking-wider text-white/80 hover:text-ocean hover:bg-ocean/10 rounded-xl transition-all duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            </motion.div>
           ))}
 
           <div>
             <button
               onClick={() => setOpenDropdown(openDropdown === 'services' ? null : 'services')}
-              className="w-full flex items-center justify-between px-4 py-2 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+              className="w-full flex items-center justify-between px-5 py-3 text-base font-display font-bold tracking-wider text-white/80 hover:text-ocean hover:bg-ocean/10 rounded-xl transition-all duration-200"
             >
               <span>Services</span>
               <FaChevronDown
-                className={`text-xs transition-transform ${openDropdown === 'services' ? 'rotate-180' : ''}`}
+                className={`text-xs transition-transform duration-300 ${openDropdown === 'services' ? 'rotate-180' : ''}`}
               />
             </button>
             {openDropdown === 'services' && (
-              <div className="mt-1 space-y-1 pl-4">
-                {servicesMenu.map((item) => (
+              <div className="mt-2 space-y-1 pl-4 border-l-2 border-ocean/20">
+                {getServicesMenu().map((item) => (
                   <Link
-                    key={item.label}
-                    to={item.href}
-                    className="block px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                    key={item.id}
+                    to={`/service/${item.id}`}
+                    className="block px-4 py-2 text-sm text-white/80 hover:text-ocean hover:bg-ocean/10 rounded-lg transition-all duration-200 font-medium tracking-wide"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
@@ -254,42 +308,68 @@ function Navigation() {
           <div>
             <button
               onClick={() => setOpenDropdown(openDropdown === 'packages' ? null : 'packages')}
-              className="w-full flex items-center justify-between px-4 py-2 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+              className="w-full flex items-center justify-between px-5 py-3 text-base font-display font-bold tracking-wider text-white/80 hover:text-ocean hover:bg-ocean/10 rounded-xl transition-all duration-200"
             >
               <span>Packages</span>
               <FaChevronDown
-                className={`text-xs transition-transform ${openDropdown === 'packages' ? 'rotate-180' : ''}`}
+                className={`text-xs transition-transform duration-300 ${openDropdown === 'packages' ? 'rotate-180' : ''}`}
               />
             </button>
             {openDropdown === 'packages' && (
-              <div className="mt-1 space-y-1 pl-4">
-                {packagesMenu.map((category) => (
+              <div className="mt-2 space-y-1 pl-4 border-l-2 border-ocean/20">
+                {getPackagesMenu().map((category) => (
                   <div key={category.category}>
                     <button
                       onClick={() => setOpenSubDropdown(openSubDropdown === category.category ? null : category.category)}
-                      className="w-full text-left flex items-center justify-between px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                      className="w-full text-left flex items-center justify-between px-4 py-2 text-sm text-white/80 hover:text-ocean hover:bg-ocean/10 rounded-lg transition-all duration-200 font-semibold tracking-wide"
                     >
                       <span>{category.category}</span>
                       <FaChevronDown
-                        className={`text-xs transition-transform ${openSubDropdown === category.category ? 'rotate-180' : ''}`}
+                        className={`text-xs transition-transform duration-300 ${openSubDropdown === category.category ? 'rotate-90' : ''}`}
                       />
                     </button>
                     {openSubDropdown === category.category && (
-                      <div className="mt-1 space-y-1 pl-4">
-                        {category.items.map((item) => (
-                          <Link
-                            key={item.label}
-                            to={item.href}
-                            className="block px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
-                            onClick={() => {
-                              setIsOpen(false);
-                              setOpenDropdown(null);
-                              setOpenSubDropdown(null);
-                            }}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
+                      <div className="mt-1 space-y-1 pl-4 border-l border-ocean/10">
+                        {category.items ? (
+                          category.items.map((item) => (
+                            <Link
+                              key={item.id}
+                              to={`/package/${item.id}`}
+                              className="block px-3 py-1.5 text-sm text-white/80 hover:text-ocean hover:bg-ocean/5 rounded-lg transition-all duration-200 font-medium tracking-wide"
+                              onClick={() => {
+                                setIsOpen(false);
+                                setOpenDropdown(null);
+                                setOpenSubDropdown(null);
+                              }}
+                            >
+                              {item.label}
+                            </Link>
+                          ))
+                        ) : (
+                          category.subGroups?.map((group) => (
+                            <div key={group.name} className="mb-2">
+                              <div className="px-3 py-1.5 text-xs font-display font-bold text-ocean/90 mb-1 tracking-widest uppercase">
+                                {group.name}
+                              </div>
+                              <div className="space-y-1 pl-3 border-l border-ocean/10">
+                                {group.items.map((item) => (
+                                  <Link
+                                    key={item.id}
+                                    to={`/package/${item.id}`}
+                                    className="block px-2 py-1 text-sm text-white/80 hover:text-ocean hover:bg-ocean/5 rounded-lg transition-all duration-200 font-medium tracking-wide"
+                                    onClick={() => {
+                                      setIsOpen(false);
+                                      setOpenDropdown(null);
+                                      setOpenSubDropdown(null);
+                                    }}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          ))
+                        )}
                       </div>
                     )}
                   </div>
@@ -300,7 +380,7 @@ function Navigation() {
 
           <Link
             to="/testimonials"
-            className="block px-4 py-2 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+            className="block px-5 py-3 text-base font-display font-bold tracking-wider text-white/80 hover:text-ocean hover:bg-ocean/10 rounded-xl transition-all duration-200"
             onClick={() => setIsOpen(false)}
           >
             Testimonials
@@ -308,7 +388,7 @@ function Navigation() {
 
           <Link
             to="/blog"
-            className="block px-4 py-2 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+            className="block px-5 py-3 text-base font-display font-bold tracking-wider text-white/80 hover:text-ocean hover:bg-ocean/10 rounded-xl transition-all duration-200"
             onClick={() => setIsOpen(false)}
           >
             Blog
@@ -316,14 +396,14 @@ function Navigation() {
 
           <Link
             to="/contact"
-            className="block px-4 py-2 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+            className="block px-5 py-3 text-base font-display font-bold tracking-wider text-white/80 hover:text-ocean hover:bg-ocean/10 rounded-xl transition-all duration-200"
             onClick={() => setIsOpen(false)}
           >
             Contact
           </Link>
 
-          <Button variant="glow" className="w-full mt-4 uppercase tracking-[0.25em]">
-            Plan a Consultation
+          <Button variant="glow" className="w-full mt-6 uppercase tracking-[0.25em] font-bold">
+            Book Now
           </Button>
         </nav>
       </div>
