@@ -194,214 +194,229 @@ export const uttarakhandPackages = [
   },
   {
     id: 4,
-    title: '3 Nights / 4 Days Auli – Chopta – Tungnath Trek',
-    shortTitle: 'Auli - Chopta Himalayan Adventure',
-    duration: '3 Nights / 4 Days',
-    pickup: 'Dehradun / Auli',
-    destinations: ['Auli', 'Chopta', 'Tungnath'],
-    highlights: ['Skiing (winter)', 'Meadows', 'Tungnath Trek', 'Himalayan views', 'Adventure activities'],
+    title: '🏔 6 Nights / 7 Days Nainital – Ranikhet – Mukteshwar – Almora – Kausani Tour Package',
+    shortTitle: 'Nainital – Ranikhet – Mukteshwar – Almora – Kausani',
+    duration: '6 Nights / 7 Days',
+    pickup: 'Kathgodam / Delhi',
+    destinations: ['Nainital', 'Ranikhet', 'Mukteshwar', 'Almora', 'Kausani'],
+    highlights: ['Naina Devi Temple', 'Naini Lake', 'Snow View Point', 'Bhimtal', 'Sattal', 'Naukuchiatal', 'Hanuman Garhi Temple', 'Golf Ground', 'Jhula Devi Temple', 'Chauli Ki Jali', 'Mukteshwar Temple', 'Bhalu Gaad Waterfall', 'Kasar Devi Temple', 'Bright End Corner', 'Deer Park', 'Anasakti Ashram', 'Baijnath Temple', 'Rudradhari Falls & Caves'],
     itinerary: [
       {
         day: 1,
-        title: 'Arrival at Auli',
+        title: 'Arrival at Nainital (Local Sightseeing)',
         details: [
-          'Arrive at Auli (the skiing capital of India)',
-          'Check in to resort and relax',
-          'Evening at leisure to explore Auli Mall',
-          'Overnight stay at Auli'
+          'Arrive at Kathgodam / Delhi and drive to Nainital (approx. 70 km / 2 hrs from Kathgodam).',
+          'Check in to the hotel and relax.',
+          'Visit: Naina Devi Temple, Naini Lake (enjoy boating), Snow View Point (by cable car – optional), Mall Road & Tibetan Market.',
+          'Evening free for shopping and leisure.',
+          'Overnight stay at Nainital.'
         ]
       },
       {
         day: 2,
-        title: 'Auli Adventure',
+        title: 'Nainital Lake Tour',
         details: [
-          'Morning Skiing or Snowboarding lesson (winter season)',
-          'Enjoy adventurous activities on the slopes',
-          'Visit Auli Artificial Lake and Cable Car rides',
-          'Evening free for leisure',
-          'Overnight stay at Auli'
+          'After breakfast, enjoy an excursion to nearby lakes: Bhimtal, Sattal, Naukuchiatal, Hanuman Garhi Temple.',
+          'Return to Nainital in the evening.',
+          'Overnight stay at Nainital.'
         ]
       },
       {
         day: 3,
-        title: 'Auli → Chopta → Tungnath Trek',
+        title: 'Nainital → Ranikhet (Approx. 60 km / 2 hrs)',
         details: [
-          'After breakfast, drive to Chopta (80 km)',
-          'Trek to Tungnath Temple (3,680m) - highest Shiva temple',
-          'Explore scenic meadows and alpine forests',
-          'Return to Chopta, overnight stay'
+          'After breakfast, check out and drive to Ranikhet – a beautiful hill town known for its scenic charm.',
+          'En route visit Golf Ground, Jhula Devi Temple, and Ranikhet Bazaar.',
+          'Evening free for leisure walks amidst pine forests.',
+          'Overnight stay at Ranikhet.'
         ]
       },
       {
         day: 4,
-        title: 'Departure',
+        title: 'Ranikhet → Mukteshwar (Approx. 90 km / 3 hrs)',
         details: [
-          'After breakfast, check out',
-          'Drive back to Dehradun / starting point'
-        ]
-      }
-    ],
-    inclusions: [
-      '3 Nights accommodation',
-      'Daily breakfast & dinner',
-      'Adventure activity passes',
-      'All transfers by private vehicle',
-      'Professional guides'
-    ],
-    exclusions: [
-      'Air / Train fare',
-      'Skiing equipment rental (optional)',
-      'Personal expenses',
-      'Advanced adventure activities'
-    ],
-    activities: ['Skiing', 'Trekking', 'Cable car rides', 'Scenic walks'],
-    bestFor: 'Adventure enthusiasts and thrill seekers'
-  },
-  {
-    id: 5,
-    title: '4 Nights / 5 Days Kedarnath - Chopta - Auli Tour',
-    shortTitle: 'Kedarnath - Spiritual Trek',
-    duration: '4 Nights / 5 Days',
-    pickup: 'Dehradun / Guptkashi',
-    destinations: ['Kedarnath', 'Chopta', 'Auli'],
-    highlights: ['Kedarnath Temple', 'Spiritual journey', 'Himalayan trekking', 'Alpine meadows', 'Sacred pilgrimage'],
-    itinerary: [
-      {
-        day: 1,
-        title: 'Arrival at Guptkashi',
-        details: [
-          'Arrive at Guptkashi via Dehradun',
-          'Check in to hotel and acclimatization',
-          'Visit Ardh Narishwar Temple',
-          'Overnight stay at Guptkashi'
-        ]
-      },
-      {
-        day: 2,
-        title: 'Guptkashi → Kedarnath Trek',
-        details: [
-          'Early morning trek to Kedarnath Temple (14 km)',
-          'Visit the sacred temple of Lord Shiva',
-          'Attend the evening Aarti ceremony',
-          'Overnight stay at Kedarnath'
-        ]
-      },
-      {
-        day: 3,
-        title: 'Kedarnath → Chopta',
-        details: [
-          'Trek down from Kedarnath',
-          'Drive to Chopta (Mini Switzerland)',
-          'Explore alpine meadows and forests',
-          'Overnight stay at Chopta'
-        ]
-      },
-      {
-        day: 4,
-        title: 'Chopta → Auli',
-        details: [
-          'Drive to Auli (80 km)',
-          'Visit Auli Lake and surroundings',
-          'Evening at leisure',
-          'Overnight stay at Auli'
+          'After breakfast, drive to Mukteshwar – a serene hill station known for its 180° Himalayan views.',
+          'Visit: Chauli Ki Jali, Mukteshwar Temple, Bhalu Gaad Waterfall.',
+          'Enjoy panoramic sunset views.',
+          'Overnight stay at Mukteshwar.'
         ]
       },
       {
         day: 5,
-        title: 'Departure',
+        title: 'Mukteshwar → Almora (Approx. 45 km / 2 hrs)',
         details: [
-          'After breakfast, check out',
-          'Drive back to Dehradun with memories'
+          'After breakfast, proceed to Almora – a cultural and heritage-rich town.',
+          'Visit: Kasar Devi Temple, Bright End Corner, Deer Park, Local markets for handicrafts.',
+          'Evening free to enjoy the peaceful environment.',
+          'Overnight stay at Almora.'
+        ]
+      },
+      {
+        day: 6,
+        title: 'Almora → Kausani (Approx. 55 km / 2 hrs)',
+        details: [
+          'After breakfast, drive to Kausani – famous as the "Switzerland of India."',
+          'Check in to the hotel and relax with mesmerizing Himalayan views.',
+          'Visit: Anasakti Ashram (Gandhi Ashram), Baijnath Temple (optional), Rudradhari Falls & Caves.',
+          'Enjoy sunset over the snow-clad Himalayan peaks.',
+          'Overnight stay at Kausani.'
+        ]
+      },
+      {
+        day: 7,
+        title: 'Kausani → Kathgodam / Delhi Departure',
+        details: [
+          'After breakfast, check out and drive back to Kathgodam / Delhi for your onward journey.',
+          'Tour ends with sweet memories.'
         ]
       }
     ],
     inclusions: [
-      '4 Nights accommodation',
+      '6 Nights accommodation (2N Nainital + 1N Ranikhet + 1N Mukteshwar + 1N Almora + 1N Kausani)',
       'Daily breakfast & dinner',
-      'All sightseeing & transfers',
-      'Professional trekking guides',
-      'All applicable taxes'
+      'All transfers & sightseeing by private vehicle',
+      'Driver allowance, toll, parking, fuel charges',
+      'All hotel taxes'
     ],
     exclusions: [
-      'Air / Train fare',
-      'Entry fees at temples',
-      'Personal expenses',
-      'Advanced trekking gear'
+      'Train / air fare',
+      'Boating, ropeway, adventure activities',
+      'Entry fees at monuments / temples'
     ],
-    activities: ['Pilgrimage', 'Trekking', 'Spiritual exploration', 'Nature walks'],
-    bestFor: 'Spiritual pilgrims and trekking enthusiasts'
+    activities: ['Temple visits', 'Lake tours', 'Scenic drives', 'Nature walks', 'Shopping'],
+    bestFor: 'Hill station lovers and nature enthusiasts'
+  },
+  {
+    id: 5,
+    title: '3 Nights / 4 Days Nainital – Kainchi Dham Tour Package',
+    shortTitle: 'Nainital – Kainchi Dham',
+    duration: '3 Nights / 4 Days',
+    pickup: 'Kathgodam / Delhi',
+    destinations: ['Nainital', 'Kainchi Dham', 'Nearby Lakes'],
+    highlights: ['Naina Devi Temple', 'Naini Lake', 'Snow View Point', 'Kainchi Dham Ashram', 'Bhimtal Lake', 'Sattal Lake', 'Naukuchiatal Lake', 'Hanuman Garhi Temple', 'Eco Cave Gardens', 'Tiffin Top'],
+    itinerary: [
+      {
+        day: 1,
+        title: 'Arrival at Nainital (Local Sightseeing)',
+        details: [
+          'Arrive at Kathgodam railway station / Delhi and drive to Nainital (approx. 70 km / 2 hrs from Kathgodam).',
+          'Check in to the hotel and relax.',
+          'Visit: Naina Devi Temple, Naini Lake (enjoy boating – optional), Snow View Point (by cable car), Mall Road & Tibetan Market.',
+          'Evening free for leisure and shopping.',
+          'Overnight stay at Nainital.'
+        ]
+      },
+      {
+        day: 2,
+        title: 'Lake Tour & Kainchi Dham Visit',
+        details: [
+          'After breakfast, head out for a full-day excursion.',
+          'Visit: Kainchi Dham Ashram – the divine temple of Neem Karoli Baba, Bhimtal Lake, Sattal Lake, Naukuchiatal Lake.',
+          'Enjoy scenic views and peaceful surroundings.',
+          'Return to Nainital by evening.',
+          'Overnight stay at Nainital.'
+        ]
+      },
+      {
+        day: 3,
+        title: 'Nainital Excursion & Leisure Day',
+        details: [
+          'After breakfast, enjoy sightseeing around Nainital: Hanuman Garhi Temple, Eco Cave Gardens, Tiffin Top or Land\'s End (optional trek or cab visit).',
+          'Evening at leisure for shopping or a lakeside walk.',
+          'Overnight stay at Nainital.'
+        ]
+      },
+      {
+        day: 4,
+        title: 'Departure from Nainital',
+        details: [
+          'After breakfast, check out from the hotel.',
+          'Drive back to Kathgodam / Delhi with divine blessings and sweet memories.'
+        ]
+      }
+    ],
+    inclusions: [
+      '3 Nights accommodation in Nainital',
+      'Daily breakfast & dinner',
+      'All transfers & sightseeing by private cab',
+      'Driver allowance, toll, parking & fuel',
+      'All applicable hotel taxes'
+    ],
+    exclusions: [
+      'Train / air fare',
+      'Boating, ropeway & adventure activity fees',
+      'Entry tickets at sightseeing places'
+    ],
+    activities: ['Temple visits', 'Lake tours', 'Spiritual exploration', 'Nature walks', 'Shopping'],
+    bestFor: 'Spiritual seekers and nature lovers'
   },
   {
     id: 6,
     title: '5 Nights / 6 Days Mussoorie – Nainital – Jim Corbett Tour Package',
-    shortTitle: 'Grand Uttarakhand Tour',
+    shortTitle: 'Mussoorie – Nainital – Jim Corbett',
     duration: '5 Nights / 6 Days',
     pickup: 'Delhi / Dehradun / Kathgodam',
     destinations: ['Mussoorie', 'Nainital', 'Jim Corbett'],
-    highlights: ['Kempty Falls', 'Naini Lake', 'Jim Corbett Safari', 'Lal Tibba', 'Tiger spotting', 'Complete Uttarakhand experience'],
+    highlights: ['Kempty Falls', 'Company Garden', 'Camel\'s Back Road', 'Lal Tibba', 'Gun Hill Point', 'Naina Devi Temple', 'Nainital Zoo', 'Snow View Point', 'Bhimtal', 'Sattal', 'Naukuchiatal', 'Garjiya Devi Temple', 'Corbett Museum', 'Jim Corbett Safari', 'Royal Bengal Tiger'],
     itinerary: [
       {
         day: 1,
-        title: 'Delhi / Dehradun → Mussoorie (300 km / 7–8 hrs)',
+        title: 'Delhi / Dehradun → Mussoorie (Approx. 300 km / 7–8 hrs)',
         details: [
-          'Meet & greet and drive to Mussoorie – the Queen of Hills',
-          'Check in to the hotel and relax',
-          'Evening free to explore Mall Road and Gun Hill Point for sunset views',
-          'Overnight stay in Mussoorie'
+          'Meet & greet at Delhi / Dehradun and drive to Mussoorie – the Queen of Hills.',
+          'Check in to the hotel and relax.',
+          'Evening free to explore Mall Road and Gun Hill Point for sunset views.',
+          'Overnight stay in Mussoorie.'
         ]
       },
       {
         day: 2,
         title: 'Mussoorie Sightseeing',
         details: [
-          'After breakfast, visit Kempty Falls, Company Garden',
-          'Camel\'s Back Road walk, Lal Tibba (highest viewpoint)',
-          'Gun Hill Point (ropeway optional)',
-          'Evening at leisure for local shopping',
-          'Overnight stay in Mussoorie'
+          'After breakfast, visit: Kempty Falls, Company Garden, Camel\'s Back Road walk, Lal Tibba (highest viewpoint in Mussoorie), Gun Hill Point (ropeway optional).',
+          'Evening at leisure for local shopping.',
+          'Overnight stay in Mussoorie.'
         ]
       },
       {
         day: 3,
-        title: 'Mussoorie → Nainital (320 km / 8 hrs)',
+        title: 'Mussoorie → Nainital (Approx. 320 km / 8 hrs)',
         details: [
-          'After breakfast, check out and drive to Nainital',
-          'En route enjoy scenic mountain views',
-          'Check in to your hotel upon arrival',
-          'Evening free for boating at Naini Lake or Mall Road stroll',
-          'Overnight stay in Nainital'
+          'After breakfast, check out and drive to Nainital.',
+          'En route enjoy scenic mountain views.',
+          'Check in to your hotel upon arrival.',
+          'Evening free for boating at Naini Lake or stroll along Mall Road.',
+          'Overnight stay in Nainital.'
         ]
       },
       {
         day: 4,
         title: 'Nainital Local & Lake Tour',
         details: [
-          'After breakfast, explore nearby attractions',
-          'Visit Naina Devi Temple, Nainital Zoo, Snow View Point',
-          'Bhimtal, Sattal & Naukuchiatal Lake Tour',
-          'Return to Nainital by evening',
-          'Overnight stay at Nainital'
+          'After breakfast, explore nearby attractions: Naina Devi Temple, Nainital Zoo, Snow View Point, Bhimtal, Sattal & Naukuchiatal Lake Tour.',
+          'Return to Nainital by evening.',
+          'Overnight stay at Nainital.'
         ]
       },
       {
         day: 5,
-        title: 'Nainital → Jim Corbett (65 km / 2 hrs)',
+        title: 'Nainital → Jim Corbett (Approx. 65 km / 2 hrs)',
         details: [
-          'After breakfast, check out and drive to Jim Corbett National Park',
-          'En route visit Garjiya Devi Temple and Corbett Museum',
-          'Check in to resort and enjoy leisure time or resort activities',
-          'Evening bonfire (subject to weather)',
-          'Overnight stay at Corbett'
+          'After breakfast, check out and drive to Jim Corbett National Park.',
+          'En route visit Garjiya Devi Temple and Corbett Museum.',
+          'Check in to resort and enjoy leisure time or resort activities.',
+          'Evening bonfire (subject to weather).',
+          'Overnight stay at Corbett.'
         ]
       },
       {
         day: 6,
         title: 'Morning Safari & Departure',
         details: [
-          'Early morning Jeep Safari inside Corbett National Park (on direct payment)',
-          'Spot elephants, deer, birds, and the Royal Bengal Tiger',
-          'Return for breakfast, check out from resort',
-          'Drive back to Delhi / Dehradun / Kathgodam'
+          'Early morning Jeep Safari inside Corbett National Park (on direct payment).',
+          'Spot elephants, deer, birds, and the majestic Royal Bengal Tiger.',
+          'Return for breakfast, check out from resort, and drive back to Delhi / Dehradun / Kathgodam.',
+          'Tour ends with wonderful memories.'
         ]
       }
     ],
@@ -416,10 +431,9 @@ export const uttarakhandPackages = [
       'Air / train fare',
       'Jungle Safari charges',
       'Boating, ropeway & adventure activities',
-      'Entry tickets at monuments / temples',
-      'Personal expenses'
+      'Entry tickets at monuments / temples'
     ],
     activities: ['Scenic tours', 'Wildlife safari', 'Lake activities', 'Temple visits', 'Shopping'],
-    bestFor: 'Complete Uttarakhand experience seekers'
+    bestFor: 'Adventure seekers and nature lovers'
   }
 ];

@@ -9,7 +9,6 @@ function VideoTestimonialsSection() {
     'VID-20250620-WA0007.mp4',
     'VID-20250620-WA0009.mp4',
     'VID-20250620-WA0011.mp4',
-    'VID-20250620-WA0012.mp4',
     'VID-20250620-WA0015.mp4',
     'VID-20250925-WA0018.mp4',
     'VID-20251028-WA0031.mp4',

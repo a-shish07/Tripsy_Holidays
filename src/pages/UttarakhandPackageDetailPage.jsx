@@ -50,7 +50,7 @@ function UttarakhandPackageDetailPage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               onClick={() => navigate('/packages/uttarakhand')}
-              className="flex items-center gap-2 text-ocean/90 hover:text-ocean transition-colors text-xs font-semibold uppercase tracking-[0.2em]"
+              className="flex items-center gap-2 text-ocean/90 hover:text-ocean transition-colors text-base font-semibold uppercase tracking-[0.2em]"
             >
               <FaArrowLeft className="w-3 h-3" />
               Back
@@ -62,11 +62,11 @@ function UttarakhandPackageDetailPage() {
               transition={{ delay: 0.1 }}
               className="space-y-1.5"
             >
-              <p className="text-xs uppercase tracking-[0.3em] bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent font-bold">Package {package_.id} of 6</p>
+              <p className="text-base uppercase tracking-[0.3em] bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent font-bold">Package {package_.id} of 6</p>
               <h1 className="text-3xl md:text-4xl font-display font-bold text-white leading-snug">
                 {package_.shortTitle}
               </h1>
-              <p className="text-sm text-white/70 font-light">{package_.title}</p>
+              <p className="text-base text-white/70 font-light">{package_.title}</p>
             </motion.div>
           </motion.div>
         </Container>
@@ -94,9 +94,9 @@ function UttarakhandPackageDetailPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <item.icon className="text-ocean w-4 h-4" />
-                  <span className="text-xs uppercase tracking-[0.15em] text-ocean/80 font-semibold">{item.label}</span>
+                  <span className="text-base uppercase tracking-[0.15em] text-ocean/80 font-semibold">{item.label}</span>
                 </div>
-                <p className="text-white font-semibold text-sm">{item.value}</p>
+                <p className="text-white font-semibold text-base">{item.value}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -123,7 +123,7 @@ function UttarakhandPackageDetailPage() {
                     initial={{ opacity: 0, x: -8 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.04 }}
-                    className="flex gap-2 text-white/80 text-sm"
+                    className="flex gap-2 text-white/80 text-base"
                   >
                     <FaStar className="text-ocean w-3 h-3 flex-shrink-0 mt-0.5" />
                     <span>{highlight}</span>
@@ -144,7 +144,7 @@ function UttarakhandPackageDetailPage() {
                     initial={{ opacity: 0, x: -8 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.04 }}
-                    className="flex gap-2 text-white/80 text-sm"
+                    className="flex gap-2 text-white/80 text-base"
                   >
                     <FaCheckCircle className="text-primary w-3 h-3 flex-shrink-0 mt-0.5" />
                     <span>{activity}</span>
@@ -179,11 +179,11 @@ function UttarakhandPackageDetailPage() {
                     className="w-full flex items-center justify-between p-4 hover:bg-ocean/4 transition-colors"
                   >
                     <div className="flex items-center gap-3 flex-1 text-left">
-                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-ocean/20 text-ocean font-bold text-sm">
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-ocean/20 text-ocean font-bold text-base">
                         {day.day}
                       </span>
                       <div>
-                        <p className="text-white font-semibold text-sm">{day.title}</p>
+                        <p className="text-white font-semibold text-base">{day.title}</p>
                       </div>
                     </div>
                     <motion.div
@@ -209,7 +209,7 @@ function UttarakhandPackageDetailPage() {
                               initial={{ opacity: 0, x: -8 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: detailIdx * 0.04 }}
-                              className="flex gap-2 text-white/70 text-xs"
+                              className="flex gap-2 text-white/70 text-base"
                             >
                               <span className="text-ocean flex-shrink-0 mt-1">•</span>
                               <span>{detail}</span>
@@ -242,7 +242,7 @@ function UttarakhandPackageDetailPage() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: idx * 0.04 }}
-                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-ocean/15 to-primary/15 text-white border border-ocean/25 font-medium text-xs flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-ocean/15 to-primary/15 text-white border border-ocean/25 font-medium text-base flex items-center gap-1.5"
                 >
                   <FaMapMarkerAlt className="w-3 h-3 text-ocean" />
                   {dest}
@@ -273,7 +273,7 @@ function UttarakhandPackageDetailPage() {
                     initial={{ opacity: 0, x: -8 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.04 }}
-                    className="flex gap-2 text-white/80 text-xs"
+                    className="flex gap-2 text-white/80 text-base"
                   >
                     <FaCheckCircle className="text-ocean w-3 h-3 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
@@ -294,9 +294,9 @@ function UttarakhandPackageDetailPage() {
                     initial={{ opacity: 0, x: -8 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.04 }}
-                    className="flex gap-2 text-white/80 text-xs"
+                    className="flex gap-2 text-white/80 text-base"
                   >
-                    <span className="text-primary/70 flex-shrink-0 mt-0.5 text-sm">−</span>
+                    <span className="text-primary/70 flex-shrink-0 mt-0.5 text-base">−</span>
                     <span>{item}</span>
                   </motion.li>
                 ))}
@@ -317,14 +317,14 @@ function UttarakhandPackageDetailPage() {
             <h3 className="text-2xl md:text-3xl font-display font-bold text-white">
               <span className="bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent">Book Your Adventure</span>
             </h3>
-            <p className="text-sm text-white/70 max-w-xl mx-auto leading-relaxed font-light">
+            <p className="text-base text-white/70 max-w-xl mx-auto leading-relaxed font-light">
               Secure your spot on this {package_.shortTitle} journey today.
             </p>
             <div className="flex flex-col md:flex-row gap-3 justify-center pt-2">
-              <Button variant="glow" size="sm" className="uppercase tracking-[0.15em] px-8 text-sm" onClick={openBookingForm}>
+              <Button variant="glow" size="base" className="uppercase tracking-[0.15em] px-8 text-base" onClick={openBookingForm}>
                 Reserve Now
               </Button>
-              <Button variant="secondary" size="sm" className="uppercase tracking-[0.15em] px-8 text-sm" onClick={() => navigate('/packages/uttarakhand')}>
+              <Button variant="secondary" size="base" className="uppercase tracking-[0.15em] px-8 text-base" onClick={() => navigate('/packages/uttarakhand')}>
                 View All
               </Button>
             </div>

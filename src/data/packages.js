@@ -33,10 +33,10 @@ const rawPackages = [
       { day: 6, title: 'Adventure & Wellness', description: 'River rafting in Alaknanda or trekking. Evening yoga and meditation session.' },
       { day: 7, title: 'Departure', description: 'Return journey with spiritual blessings and blessed memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/Breathtaking Nature Scenery Landscape Image.jpg'
     ],
     badge: 'Spiritual',
     bestTime: 'Mar - Jun, Sep - Nov',
@@ -75,10 +75,10 @@ const rawPackages = [
       { day: 6, title: 'Kullu Valley Exploration', description: 'Visit Kullu temples, traditional markets, handicraft centers, and local crafts.' },
       { day: 7, title: 'Departure', description: 'Depart with unforgettable mountain memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1580271455991-37cf6d1e30c0?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/Tropical Beach House With Palm Trees And Crystal Clear Water Photo And Picture For Free Download - Pngtree.jpg'
     ],
     badge: 'Popular',
     bestTime: 'Mar - Jun, Sep - Nov',
@@ -154,10 +154,10 @@ const rawPackages = [
       { day: 4, title: 'Beach Resort Relaxation', description: 'Relax at Marari Beach. Ayurveda massage and water activities.' },
       { day: 5, title: 'Departure', description: 'Depart with Kerala memories and rejuvenated spirit.' }
     ],
-    image: 'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/download (1).jpg',
     images: [
-      'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1602088113235-229c19758e9f?auto=format&fit=crop&w=800&q=80'
+      '/assests/download (1).jpg',
+      '/assests/download (2).jpg'
     ],
     badge: 'Best Seller',
     bestTime: 'Oct - Mar',
@@ -240,10 +240,10 @@ const rawPackages = [
       { day: 8, title: 'Local Culture', description: 'Interact with Ladakhi communities.' },
       { day: 9, title: 'Departure', description: 'Depart with high-altitude memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Adventure',
     bestTime: 'Jun - Sep',
@@ -281,10 +281,10 @@ const rawPackages = [
       { day: 6, title: 'Kutch Exploration', description: 'Textile markets, embroidery centers, and local crafts.' },
       { day: 7, title: 'Return Journey', description: 'Depart with handicrafts and memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/View Of Rice Field In Rural Area Of Thailand Outdoor Nature Of Mountain Cottage, Rice, Green, Field Background Image And Wallpaper for Free Download.jpg'
     ],
     badge: 'Unique',
     bestTime: 'Nov - Mar',
@@ -323,10 +323,10 @@ const rawPackages = [
       { day: 7, title: 'Nature Walks', description: 'Explore waterfalls and pristine forests.' },
       { day: 8, title: 'Departure', description: 'Depart with tribal memories and experiences.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/Maligne Lake Spirit Island, Canada.jpg'
     ],
     badge: 'Explorer',
     bestTime: 'Oct - Apr',
@@ -362,10 +362,10 @@ const rawPackages = [
       { day: 4, title: 'Backwater Cruise', description: 'Dolphin watching and sunset cruise on backwaters.' },
       { day: 5, title: 'Beach Relaxation', description: 'Last day beach time and shopping, then departure.' }
     ],
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/download.jpg',
     images: [
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
+      '/assests/download.jpg',
+      '/assests/Maligne Lake Spirit Island, Canada.jpg'
     ],
     badge: 'Popular',
     bestTime: 'Nov - Mar',
@@ -441,10 +441,10 @@ const rawPackages = [
       { day: 5, title: 'Scuba Diving Experience', description: 'Professional scuba diving in coral gardens (for certified divers).' },
       { day: 6, title: 'Departure', description: 'Relax and depart with paradise memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Рослесхоз_ просроченные обязательства по лесовосстановлению сократились на 64% в 2024 году.jpg',
     images: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=800&q=80'
+      '/assests/Рослесхоз_ просроченные обязательства по лесовосстановлению сократились на 64% в 2024 году.jpg',
+      '/assests/download.jpg'
     ],
     badge: 'Exclusive',
     bestTime: 'Oct - May',
@@ -483,10 +483,10 @@ const rawPackages = [
       { day: 6, title: 'Ayodhya Ram Mandir', description: 'Travel to Ayodhya. Visit Ram Mandir and sacred temples.' },
       { day: 7, title: 'Departure', description: 'Depart with spiritual blessings and inner peace.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Spiritual',
     bestTime: 'Oct - Mar, May - Jun',
@@ -524,10 +524,10 @@ const rawPackages = [
       { day: 5, title: 'Island Adventure', description: 'Scuba diving or snorkeling. Visit coral reefs and marine life.' },
       { day: 6, title: 'Departure', description: 'Relax at resort and depart with tropical memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/download (1).jpg',
     images: [
-      'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
+      '/assests/download (1).jpg',
+      '/assests/Рослесхоз_ просроченные обязательства по лесовосстановлению сократились на 64% в 2024 году.jpg'
     ],
     badge: 'Popular',
     bestTime: 'Apr - Jun, Sep - Nov',
@@ -564,10 +564,10 @@ const rawPackages = [
       { day: 4, title: 'Neil Island Exploration', description: 'Visit Neil Island. Explore coral reefs and natural rock formations.' },
       { day: 5, title: 'Departure', description: 'Relax at resort and depart with island memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Рослесхоз_ просроченные обязательства по лесовосстановлению сократились на 64% в 2024 году.jpg',
     images: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=800&q=80'
+      '/assests/Рослесхоз_ просроченные обязательства по лесовосстановлению сократились на 64% в 2024 году.jpg',
+      '/assests/download.jpg'
     ],
     badge: 'Adventure',
     bestTime: 'Nov - Apr',
@@ -605,10 +605,10 @@ const rawPackages = [
       { day: 5, title: 'Luxury Spa Day', description: 'Spa treatments, massage, and wellness activities. Sunset dolphin cruise.' },
       { day: 6, title: 'Departure', description: 'Last relaxation time at resort before departure.' }
     ],
-    image: 'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/download (1).jpg',
     images: [
-      'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=800&q=80'
+      '/assests/download (1).jpg',
+      '/assests/download.jpg'
     ],
     badge: 'Luxury',
     bestTime: 'Nov - Apr',
@@ -645,10 +645,10 @@ const rawPackages = [
       { day: 4, title: 'Phuket Island Adventure', description: 'Island hopping tour, Phang Nga Bay, and water sports.' },
       { day: 5, title: 'Departure', description: 'Departure with Thai memories and new friendships.' }
     ],
-    image: 'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/download (1).jpg',
     images: [
-      'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
+      '/assests/download (1).jpg',
+      '/assests/Maligne Lake Spirit Island, Canada.jpg'
     ],
     badge: 'Popular',
     bestTime: 'Nov - Feb',
@@ -685,10 +685,10 @@ const rawPackages = [
       { day: 4, title: 'Georgetown Heritage Tour', description: 'Explore UNESCO heritage city. Street food paradise and beaches.' },
       { day: 5, title: 'Departure', description: 'Relax and depart with Malaysian memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/download (1).jpg'
     ],
     badge: 'Modern',
     bestTime: 'Nov - Mar',
@@ -727,10 +727,10 @@ const rawPackages = [
       { day: 6, title: 'Whale Watching & Galle', description: 'Whale watching boat trip. Visit historic Galle Fort.' },
       { day: 7, title: 'Departure', description: 'Relax and depart with memories of Sri Lanka.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1537225228614-b4fad34a2b08?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/download (1).jpg'
     ],
     badge: 'Explorer',
     bestTime: 'Dec - Mar',
@@ -767,10 +767,10 @@ const rawPackages = [
       { day: 4, title: 'Thimphu Journey', description: 'Travel to Thimphu. Visit Punakha Dzong and interact with local communities.' },
       { day: 5, title: 'Departure', description: 'Depart with spiritual blessings and Himalayan memories.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Spiritual',
     bestTime: 'Mar - May, Sep - Nov',
@@ -808,10 +808,10 @@ const rawPackages = [
       { day: 5, title: 'Pokhara Adventures', description: 'Mountain trekking or paragliding. Visit local villages.' },
       { day: 6, title: 'Departure', description: 'Depart with Himalayan memories and spiritual awakening.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/Maligne Lake Spirit Island, Canada.jpg'
     ],
     badge: 'Spiritual',
     bestTime: 'Mar - May, Sep - Nov',
@@ -855,10 +855,10 @@ const rawPackages = [
       { day: 11, title: 'Spiritual Retreat', description: 'Meditation and yoga sessions. Reflection time.' },
       { day: 12, title: 'Departure', description: 'Depart with spiritual blessings and purified soul.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -904,10 +904,10 @@ const rawPackages = [
       { day: 13, title: 'Lhasa Final Visit', description: 'Last spiritual visit to Lhasa temples.' },
       { day: 14, title: 'Departure', description: 'Return to India with spiritual transformation.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Sep',
@@ -943,10 +943,10 @@ const rawPackages = [
       { day: 4, title: 'Amarnath Cave Darshan', description: 'Trek to sacred Amarnath Cave. Holy darshan of ice lingam.' },
       { day: 5, title: 'Return & Departure', description: 'Descend and depart with spiritual blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/Maligne Lake Spirit Island, Canada.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'Jul - Aug',
@@ -982,10 +982,10 @@ const rawPackages = [
       { day: 3, title: 'Spiritual Practices', description: 'Yoga session, meditation, and Ganga boat ride at sunrise.' },
       { day: 4, title: 'Sarnath & Departure', description: 'Visit Sarnath Buddhist site, then depart with spiritual blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/Breathtaking Nature Scenery Landscape Image.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'Oct - Mar, May - Jun',
@@ -1028,10 +1028,10 @@ const rawPackages = [
       { day: 10, title: 'Spiritual Retreat', description: 'Meditation and reflection at Badrinath.' },
       { day: 11, title: 'Return to Haridwar', description: 'Travel back to Haridwar with blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1076,10 +1076,10 @@ const rawPackages = [
       { day: 12, title: 'Return to Delhi', description: 'Begin journey back towards Delhi.' },
       { day: 13, title: 'Arrival in Delhi', description: 'Drop back at Delhi hotel with blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1118,10 +1118,10 @@ const rawPackages = [
       { day: 6, title: 'Spiritual Retreat', description: 'Meditation and reflection at Badrinath.' },
       { day: 7, title: 'Return Journey', description: 'Depart with spiritual blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1161,10 +1161,10 @@ const rawPackages = [
       { day: 7, title: 'Badrinath Retreat', description: 'Spiritual practices and wellness at Badrinath.' },
       { day: 8, title: 'Return to Haridwar', description: 'Travel back to Haridwar with blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1206,10 +1206,10 @@ const rawPackages = [
       { day: 9, title: 'Haridwar to Delhi', description: 'Travel back towards Delhi.' },
       { day: 10, title: 'Arrival in Delhi', description: 'Drop at Delhi hotel with blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1245,10 +1245,10 @@ const rawPackages = [
       { day: 3, title: 'Sacred Darshan', description: 'Morning prayers, holy rituals, and meditation.' },
       { day: 4, title: 'Descent & Departure', description: 'Trek down and depart with spiritual blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/Maligne Lake Spirit Island, Canada.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1285,10 +1285,10 @@ const rawPackages = [
       { day: 4, title: 'Spiritual Practices', description: 'Meditation and yoga at Kedarnath.' },
       { day: 5, title: 'Return to Haridwar', description: 'Trek down and return to Haridwar.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1327,10 +1327,10 @@ const rawPackages = [
       { day: 6, title: 'Return to Delhi', description: 'Begin return journey to Delhi.' },
       { day: 7, title: 'Arrival in Delhi', description: 'Drop at Delhi hotel with blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1378,10 +1378,10 @@ const rawPackages = [
       { day: 15, title: 'Rest at Kathmandu', description: 'Recovery and rest day.' },
       { day: 16, title: 'Departure', description: 'Depart with spiritual transformation.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Sacred',
     bestTime: 'May - Sep',
@@ -1419,10 +1419,10 @@ const rawPackages = [
       { day: 5, title: 'Helicopter to Badrinath', description: 'Helicopter from Kedarnath to Badrinath. Temple visit.' },
       { day: 6, title: 'Return to Dehradun', description: 'Helicopter back to Dehradun with blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Luxury',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1458,10 +1458,10 @@ const rawPackages = [
       { day: 3, title: 'Helicopter to Badrinath', description: 'Helicopter from Kedarnath to Badrinath. Temple visit.' },
       { day: 4, title: 'Return to Dehradun', description: 'Helicopter back to Dehradun with spiritual blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Luxury',
     bestTime: 'May - Jun, Sep - Oct',
@@ -1496,10 +1496,10 @@ const rawPackages = [
       { day: 2, title: 'Amarnath Trek & Darshan', description: 'Trek to Amarnath Cave. Sacred darshan of ice lingam.' },
       { day: 3, title: 'Return by Helicopter', description: 'Helicopter back to Srinagar with spiritual blessings.' }
     ],
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
     images: [
-      'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
+      '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
+      '/assests/Maligne Lake Spirit Island, Canada.jpg'
     ],
     badge: 'Luxury',
     bestTime: 'Jul - Aug',
@@ -1543,10 +1543,10 @@ const rawPackages = [
       { day: 11, title: 'Helicopter to Base City', description: 'Helicopter flight towards base city.' },
       { day: 12, title: 'Return Home', description: 'Final departure with spiritual transformation.' }
     ],
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
+    image: '/assests/Maligne Lake Spirit Island, Canada.jpg',
     images: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+      '/assests/Maligne Lake Spirit Island, Canada.jpg',
+      '/assests/A serene beach scene with turquoise waters, lush greenery, and majestic cliffs in the video.jpg'
     ],
     badge: 'Ultra Luxury',
     bestTime: 'May - Sep',
