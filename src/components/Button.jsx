@@ -8,13 +8,13 @@ const sizeStyles = {
 
 const variantStyles = {
   primary:
-    'bg-ocean hover:bg-primary focus-visible:ring-primary shadow-glow text-white',
+    'bg-gradient-to-r from-ocean to-primary hover:from-primary hover:to-ocean text-white shadow-[0_18px_35px_rgba(14,165,233,0.25)] focus-visible:ring-ocean/50',
   secondary:
-    'bg-white/10 hover:bg-white/20 focus-visible:ring-white text-white',
+    'bg-night/80 text-ocean border border-ocean/30 hover:bg-night focus-visible:ring-ocean/30 shadow-sm',
   outline:
-    'border border-white/30 hover:border-white focus-visible:ring-white text-white',
+    'border border-ocean/40 hover:bg-ocean/10 focus-visible:ring-ocean/40 text-slate-100',
   glow:
-    'bg-gradient-to-r from-ocean to-primary hover:from-primary hover:to-ocean text-white shadow-[0_18px_35px_rgba(14,165,233,0.25)]',
+    'bg-gradient-to-r from-ocean to-primary hover:from-primary hover:to-ocean text-white shadow-[0_25px_45px_rgba(14,165,233,0.35)] focus-visible:ring-ocean/50',
 };
 
 function Button({

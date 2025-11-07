@@ -13,13 +13,13 @@ function HomePage() {
       <div className="border-t border-white/10" />
       <ServiceDetailsSection />
       <div className="border-t border-white/10" />
+      <WhyChooseUsSection />
+      <div className="border-t border-white/10" />
       <DestinationsSection />
       <div className="border-t border-white/10" />
       <PackagesSection />
       <div className="border-t border-white/10" />
       <TestimonialsSection />
-      <div className="border-t border-white/10" />
-      <WhyChooseUsSection />
       <div className="border-t border-white/10" />
       {/* <CallToActionSection /> */}
     </div>

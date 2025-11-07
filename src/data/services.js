@@ -1,3 +1,5 @@
+import { imageAssets } from './images';
+
 export const services = [
   {
     id: 1,
@@ -17,7 +19,7 @@ export const services = [
       'Adventure & spiritual activities included'
     ],
     pricing: '₹15,000 - ₹50,000 per person',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.domestic
   },
   {
     id: 2,
@@ -38,7 +40,7 @@ export const services = [
       'Travel documents and e-visa handling'
     ],
     pricing: '₹45,000 - ₹3,00,000 per person',
-    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.international
   },
   {
     id: 3,
@@ -59,7 +61,7 @@ export const services = [
       'Spiritual counseling available'
     ],
     pricing: '₹8,000 - ₹1,50,000 per person',
-    image: 'https://images.unsplash.com/photo-1504681869696-d977211a83e7?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.spiritual
   },
   {
     id: 4,
@@ -80,7 +82,7 @@ export const services = [
       'Dedicated corporate coordinator'
     ],
     pricing: '₹15,000 - ₹2,00,000+ per person',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.corporate
   },
   {
     id: 5,
@@ -101,7 +103,7 @@ export const services = [
       'Group photo sessions included'
     ],
     pricing: '₹10,000 - ₹80,000 per person',
-    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.domestic
   },
   {
     id: 6,
@@ -122,7 +124,7 @@ export const services = [
       'Free cancellation (select properties)'
     ],
     pricing: 'Negotiated rates (save 15-40%)',
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.hotels
   },
   {
     id: 7,
@@ -143,7 +145,7 @@ export const services = [
       'Visa requirements consultation'
     ],
     pricing: 'Competitive market rates (select best fares)',
-    image: 'https://images.unsplash.com/photo-1552721206-5a36b7f3b8e3?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.flights
   },
   {
     id: 8,
@@ -164,7 +166,7 @@ export const services = [
       'Beginner to expert options'
     ],
     pricing: '₹5,000 - ₹80,000 per person',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.adventure
   },
   {
     id: 9,
@@ -185,6 +187,6 @@ export const services = [
       'Private activities and excursions'
     ],
     pricing: '₹40,000 - ₹5,00,000 per couple',
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80'
+    image: imageAssets.services.honeymoon
   }
 ];

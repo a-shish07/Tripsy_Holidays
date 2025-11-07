@@ -80,15 +80,15 @@ function ServiceDetailsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="group flex flex-col rounded-3xl border border-white/10 bg-gradient-to-br from-white/12 to-white/5 overflow-hidden backdrop-blur hover:border-ocean/60 transition-all duration-300 hover:shadow-2xl hover:shadow-ocean/25"
+            className="group flex flex-col rounded-3xl border border-white/10 bg-gradient-to-br from-night/85 to-night/65 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-ocean/40 hover:shadow-[0_30px_70px_rgba(46,76,165,0.45)] backdrop-blur"
           >
-            <div className="relative h-56 overflow-hidden bg-gradient-to-br from-white/10 to-transparent">
+            <div className="relative h-56 overflow-hidden bg-gradient-to-br from-night/40 to-transparent">
               <img
                 src={service.image}
                 alt={service.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-night/70 via-transparent to-transparent" />
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -103,13 +103,13 @@ function ServiceDetailsSection() {
 
             <div className="flex flex-col flex-1 p-7 space-y-4">
               <div className="space-y-2">
-                <p className="text-xs uppercase tracking-[0.35em] text-ocean/90 font-display font-bold">{service.eyebrow}</p>
+                <p className="text-xs uppercase tracking-[0.35em] text-ocean font-display font-bold">{service.eyebrow}</p>
                 <h3 className="font-display text-3xl text-white group-hover:text-ocean transition-colors font-bold tracking-tight">
                   {service.title}
                 </h3>
               </div>
 
-              <div className="flex items-center gap-4 text-sm font-body text-white/80">
+              <div className="flex items-center gap-4 text-sm font-body text-white/60">
                 {service.duration && (
                   <div className="flex items-center gap-1.5">
                     <span>📅</span>
@@ -125,22 +125,22 @@ function ServiceDetailsSection() {
                 {service.rating && (
                   <div className="flex items-center gap-1.5">
                     <span>⭐</span>
-                    <span className="text-yellow-400 font-semibold">{service.rating}</span>
+                    <span className="text-yellow-300 font-semibold">{service.rating}</span>
                   </div>
                 )}
               </div>
 
-              <p className="text-base text-white/85 font-body leading-relaxed">
+              <p className="text-base text-white/70 font-body leading-relaxed">
                 {service.description}
               </p>
 
               <div className="space-y-2 py-4 border-t border-white/10">
-                <p className="text-xs uppercase tracking-[0.3em] text-ocean/80 font-display font-bold">Highlights</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-ocean font-display font-bold">Highlights</p>
                 <div className="space-y-1.5">
                   {service.highlights.slice(0, 2).map((highlight) => (
                     <div key={highlight} className="flex items-start gap-2">
                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-ocean mt-1.5" />
-                      <span className="text-sm text-white/75 font-body">{highlight}</span>
+                      <span className="text-sm text-white/65 font-body">{highlight}</span>
                     </div>
                   ))}
                 </div>

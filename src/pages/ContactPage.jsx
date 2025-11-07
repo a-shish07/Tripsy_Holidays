@@ -36,9 +36,9 @@ function ContactPage() {
           className="grid md:grid-cols-3 gap-8 mb-20"
         >
           {[
-            { icon: '📞', label: 'Phone', value: '+91 (555) 000-0000', desc: 'Available Mon-Fri, 9AM-6PM' },
+            { icon: '📞', label: 'Phone', value: '096674 93957', desc: 'Available Mon-Sat, 9AM-7PM' },
             { icon: '✉️', label: 'Email', value: 'hello@trisyholidays.com', desc: 'We respond within 24 hours' },
-            { icon: '📍', label: 'Visit Us', value: 'New Delhi, India', desc: 'Schedule an in-person meeting' },
+            { icon: '📍', label: 'Visit Us', value: ': L block, Gaur City 1, Sector 4, Noida, Ghaziabad, Uttar Pradesh 201318', desc: 'Schedule an in-person meeting' },
           ].map((contact) => (
             <motion.div
               key={contact.label}

@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   background-color: theme('colors.night');
 }
 
 body {
-  @apply bg-night text-white font-body antialiased;
+  @apply bg-gradient-to-b from-night via-[#18294a] to-sand text-slate-100 font-body antialiased;
 }
 
 a {

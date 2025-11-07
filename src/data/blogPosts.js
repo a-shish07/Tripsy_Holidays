@@ -1,4 +1,6 @@
-export const blogPosts = [
+import { imageAssets } from './images';
+
+const rawBlogPosts = [
   {
     id: 1,
     title: 'Ultimate Guide to Planning Your Dream Honeymoon in Bali',
@@ -132,3 +134,17 @@ export const blogPosts = [
     category: 'Travel Tips',
   },
 ];
+
+const blogImageMap = {
+  1: imageAssets.blog[1],
+  2: imageAssets.blog[2],
+  3: imageAssets.blog[3],
+  4: imageAssets.blog[4],
+  5: imageAssets.blog[5],
+  6: imageAssets.blog[6],
+};
+
+export const blogPosts = rawBlogPosts.map(post => ({
+  ...post,
+  image: post.image || blogImageMap[post.id] || imageAssets.blog.featured,
+}));

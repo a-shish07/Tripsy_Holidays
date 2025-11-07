@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import TestimonialsSection from '../sections/TestimonialsSection';
+import VideoTestimonialsSection from '../sections/VideoTestimonialsSection';
 import Container from '../components/Container';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
@@ -36,6 +37,10 @@ function TestimonialsPage() {
       <div className="border-t border-white/10" />
 
       <TestimonialsSection />
+
+      <div className="border-t border-white/10" />
+
+      <VideoTestimonialsSection />
 
       <div className="border-t border-white/10" />
 

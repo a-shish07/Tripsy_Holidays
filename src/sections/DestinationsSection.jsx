@@ -31,7 +31,7 @@ function DestinationsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, amount: 0.25 }}
-            className="group grid gap-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/12 to-white/5 p-8 backdrop-blur-xl md:grid-cols-[1.5fr_2fr] md:p-12 hover:border-ocean/60 hover:from-white/15 hover:to-white/8 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-ocean/25 cursor-pointer"
+            className="group grid gap-8 rounded-3xl border border-white/10 bg-gradient-to-br from-night/85 to-night/70 p-8 md:grid-cols-[1.5fr_2fr] md:p-12 transition-all duration-300 shadow-[0_35px_80px_rgba(16,28,56,0.55)] hover:-translate-y-1 hover:border-ocean/40 hover:shadow-[0_40px_90px_rgba(46,76,165,0.45)] cursor-pointer backdrop-blur"
             onClick={() => navigate(`/package/${featuredPackage.id}`)}
           >
             <div className="relative overflow-hidden rounded-3xl">
@@ -40,7 +40,7 @@ function DestinationsSection() {
                 alt={featuredPackage.name}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
               <span className="absolute left-6 top-6 rounded-full bg-gradient-to-r from-ocean to-primary px-5 py-2.5 text-xs font-display font-bold uppercase tracking-[0.3em] text-white shadow-lg">
                 ⭐ Featured • {featuredPackage.duration}
               </span>
@@ -54,7 +54,7 @@ function DestinationsSection() {
                   {featuredPackage.name}
                 </h3>
               </div>
-              <p className="text-lg leading-relaxed text-white/80 font-body">
+              <p className="text-lg leading-relaxed text-white/75 font-body">
                 {featuredPackage.description}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -92,7 +92,7 @@ function DestinationsSection() {
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
                 onClick={() => navigate(`/package/${pkg.id}`)}
-                className="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/8 to-white/3 overflow-hidden hover:bg-white/12 hover:border-ocean/40 transition-all cursor-pointer hover:shadow-lg hover:shadow-ocean/20"
+                className="group rounded-2xl border border-white/10 bg-white/10 overflow-hidden transition-all cursor-pointer hover:-translate-y-1 hover:border-ocean/40 hover:shadow-[0_25px_60px_rgba(16,28,56,0.45)] backdrop-blur"
               >
                 <div className="relative h-40 overflow-hidden">
                   <img
@@ -100,7 +100,7 @@ function DestinationsSection() {
                     alt={pkg.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
                   {pkg.badge && (
                     <span className="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-ocean to-primary rounded-full text-xs font-bold text-white">
                       {pkg.badge}
@@ -131,7 +131,7 @@ function DestinationsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="rounded-3xl border-2 border-ocean/50 bg-gradient-to-br from-ocean/25 to-primary/15 p-8 md:p-12 backdrop-blur-xl hover:shadow-lg hover:shadow-ocean/20 transition-all duration-300"
+          className="rounded-3xl border border-white/10 bg-gradient-to-br from-night/80 to-night/65 p-8 md:p-12 shadow-[0_30px_70px_rgba(16,28,56,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-ocean/40 backdrop-blur"
         >
           <div className="flex items-start gap-4">
             <span className="text-4xl flex-shrink-0">✈️</span>

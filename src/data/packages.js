@@ -1,4 +1,6 @@
-export const packages = [
+import { getPackageImage } from './images';
+
+const rawPackages = [
   {
     id: 1,
     name: 'Uttarakhand Packages',
@@ -1553,3 +1555,11 @@ export const packages = [
     highlights: ['Mount Kailash', 'Lake Mansarovar', 'Helicopter Rides', 'Ultimate Luxury']
   }
 ];
+
+export const packages = rawPackages.map(pkg => ({
+  ...pkg,
+  image: pkg.image || getPackageImage(pkg.subcategory),
+  images: pkg.images?.length ? pkg.images : [getPackageImage(pkg.subcategory)],
+}));
+
+export default packages;

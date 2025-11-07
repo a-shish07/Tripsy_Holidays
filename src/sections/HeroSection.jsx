@@ -1,223 +1,322 @@
-import { motion } from 'framer-motion';
+import { useContext, useEffect, useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import { packages } from '../data/packages';
+import { BookingContext } from '../App';
+
+const heroConfigs = [
+  {
+    category: 'Domestic',
+    eyebrow: 'Domestic Highlights',
+    secondaryLabel: 'Browse Domestic',
+    browseHref: '/packages/domestic',
+  },
+  {
+    category: 'International',
+    eyebrow: 'International Luxury',
+    secondaryLabel: 'Browse International',
+    browseHref: '/packages/international',
+  },
+  {
+    category: 'Spiritual',
+    eyebrow: 'Sacred Journeys',
+    secondaryLabel: 'View Spiritual Tours',
+    browseHref: '/services',
+  },
+];
+
+const slides = heroConfigs
+  .map((config) => {
+    const pkg = packages.find((item) => item.category === config.category);
+    if (!pkg) {
+      return null;
+    }
+
+    const tags = (pkg.activities && pkg.activities.length ? pkg.activities : pkg.highlights || []).slice(0, 3);
+
+    return {
+      eyebrow: config.eyebrow,
+      title: pkg.name,
+      highlight: pkg.subcategory || pkg.category,
+      description: pkg.description,
+      image: pkg.image,
+      tags,
+      primaryCta: { label: 'View Package', href: `/package/${pkg.id}` },
+      secondaryCta: { label: config.secondaryLabel, href: config.browseHref },
+      stat: {
+        label: 'Verified Reviews',
+        value: `${pkg.reviewCount}+`,
+        description: `Rated ${pkg.rating}★ by discerning travelers`,
+      },
+      metrics: [
+        {
+          icon: '📅',
+          label: 'Duration',
+          value: pkg.duration || 'Custom',
+          description: pkg.bestTime ? `Best time: ${pkg.bestTime}` : 'Flexible schedules',
+        },
+        {
+          icon: '💰',
+          label: 'Starting At',
+          value: pkg.priceLabel || (pkg.price ? `₹${pkg.price}` : 'On Request'),
+          description: 'Per person pricing',
+        },
+      ],
+    };
+  })
+  .filter(Boolean);
 
 function HeroSection() {
   const navigate = useNavigate();
-  const featuredPackage = packages.find(p => p.badge === 'Popular') || packages[0];
-  
+  const { openBookingForm } = useContext(BookingContext);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isManuallyNavigated, setIsManuallyNavigated] = useState(false);
+
+  useEffect(() => {
+    if (isManuallyNavigated) {
+      const timeout = setTimeout(() => setIsManuallyNavigated(false), 6000);
+      return () => clearTimeout(timeout);
+    }
+  }, [isManuallyNavigated]);
+
+  useEffect(() => {
+    if (isManuallyNavigated || slides.length === 0) {
+      return undefined;
+    }
+
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % slides.length);
+    }, 7500);
+
+    return () => clearInterval(interval);
+  }, [isManuallyNavigated]);
+
+  const activeSlide = useMemo(() => {
+    if (!slides.length) {
+      return null;
+    }
+    return slides[activeIndex % slides.length];
+  }, [activeIndex]);
+
+  const handleNavigate = (index) => {
+    setIsManuallyNavigated(true);
+    setActiveIndex(index);
+  };
+
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{ y: [0, 30, 0], opacity: [0.4, 0.7, 0.4] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -right-1/4 top-1/4 h-[800px] w-[800px] rounded-full bg-gradient-to-br from-ocean/25 to-transparent blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, -30, 0], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          className="absolute -left-1/4 -bottom-1/4 h-[700px] w-[700px] rounded-full bg-gradient-to-tr from-primary/20 to-transparent blur-3xl"
-        />
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={activeSlide.image}
+            src={activeSlide.image}
+            alt={activeSlide.title}
+            className="h-full w-full object-cover"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-br from-night/90 via-night/80 to-night/60" />
+        <div className="absolute -top-40 right-10 h-80 w-80 rounded-full bg-ocean/30 blur-3xl" />
+        <div className="absolute -bottom-32 left-10 h-96 w-96 rounded-full bg-primary/25 blur-3xl" />
       </div>
 
-      <div className="px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+      <div className="relative z-10 px-4 pb-28 pt-28 sm:px-6 md:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="flex flex-col gap-16 lg:flex-row lg:items-center">
             <motion.div
+              key={activeSlide.title}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="max-w-2xl space-y-8"
             >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                className="w-fit"
-              >
-                <div className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-ocean/20 to-primary/20 border border-ocean/40 backdrop-blur-sm">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-ocean opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-ocean" />
-                  </span>
-                  <span className="text-xs uppercase tracking-[0.2em] text-white/90 font-semibold">✨ Award-Winning Travel</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
+              <motion.span
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="space-y-4"
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs font-display font-semibold uppercase tracking-[0.25em] text-ocean"
               >
-                <h1 className="font-display text-6xl md:text-7xl lg:text-7xl font-black tracking-tight leading-[1.1]">
-                  <span className="block text-white">Craft Your</span>
-                  <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                    className="block bg-gradient-to-r from-ocean via-sky-400 to-cyan-400 bg-clip-text text-transparent"
-                  >
-                    Dream Journey
-                  </motion.span>
+                <span className="h-1.5 w-1.5 rounded-full bg-ocean" />
+                {activeSlide.eyebrow}
+              </motion.span>
+
+              <div className="space-y-4">
+                <h1 className="font-display text-5xl font-black tracking-tight text-white sm:text-6xl">
+                  {activeSlide.title}
                 </h1>
-              </motion.div>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.7 }}
+                  className="text-lg font-semibold uppercase tracking-[0.3em] text-ocean"
+                >
+                  {activeSlide.highlight}
+                </motion.p>
+              </div>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-lg text-white/70 leading-relaxed max-w-xl font-light"
+                transition={{ delay: 0.25, duration: 0.7 }}
+                className="text-lg leading-relaxed text-slate-200"
               >
-                From iconic landmarks to hidden gems. We create personalized travel experiences that transform ordinary vacations into extraordinary memories.
+                {activeSlide.description}
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="flex flex-col sm:flex-row gap-4 pt-4"
+              <motion.ul
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.08,
+                    },
+                  },
+                }}
+                className="flex flex-wrap gap-3"
               >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Button
-                    variant="glow"
-                    size="lg"
-                    className="w-full sm:w-auto uppercase tracking-[0.15em] font-bold text-base"
-                    onClick={() => navigate('/packages')}
+                {activeSlide.tags.map((tag) => (
+                  <motion.li
+                    key={tag}
+                    variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+                    className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-display font-semibold uppercase tracking-[0.25em] text-white/80 shadow-sm"
                   >
-                    Explore Packages
-                  </Button>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Button
-                    size="lg"
-                    className="w-full sm:w-auto uppercase tracking-[0.15em] font-bold text-base border border-white/30 hover:bg-white/10 transition-all"
-                    onClick={() => navigate('/contact')}
-                  >
-                    Plan Custom Trip
-                  </Button>
-                </motion.div>
-              </motion.div>
+                    {tag}
+                  </motion.li>
+                ))}
+              </motion.ul>
 
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="pt-8 space-y-4 border-t border-white/10"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+                className="flex flex-col gap-4 pt-6 sm:flex-row sm:flex-wrap"
               >
-                <div className="grid grid-cols-3 gap-6">
-                  {[
-                    { number: '25K+', label: 'Happy Travelers' },
-                    { number: '150+', label: 'Destinations' },
-                    { number: '4.9★', label: 'Rated' },
-                  ].map((stat, i) => (
-                    <motion.div
-                      key={stat.label}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6 + i * 0.1, duration: 0.6 }}
-                    >
-                      <p className="font-display text-3xl font-bold bg-gradient-to-r from-ocean to-cyan-400 bg-clip-text text-transparent">
-                        {stat.number}
-                      </p>
-                      <p className="text-xs uppercase tracking-[0.2em] text-white/50 mt-1 font-medium">
-                        {stat.label}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  onClick={() => navigate(activeSlide.primaryCta.href)}
+                >
+                  {activeSlide.primaryCta.label}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full border-ocean/40 text-slate-100 hover:bg-ocean/10 sm:w-auto"
+                  onClick={() => navigate(activeSlide.secondaryCta.href)}
+                >
+                  {activeSlide.secondaryCta.label}
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  onClick={openBookingForm}
+                >
+                  Book Now
+                </Button>
               </motion.div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 40, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ delay: 0.2, duration: 1 }}
-              className="relative hidden lg:block"
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.8 }}
+              className="relative w-full max-w-xl self-stretch rounded-3xl border border-white/10 bg-night/80 p-8 shadow-[0_30px_70px_rgba(16,28,56,0.45)] backdrop-blur"
             >
-              <motion.div
-                animate={{ y: [0, 20, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-ocean/20">
-                  <img
-                    src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80"
-                    alt="Travel"
-                    className="w-full h-[550px] object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-night/30 to-transparent" />
-                  
+              <div className="absolute -top-10 right-6 hidden h-20 w-20 rounded-full bg-gradient-to-br from-ocean/30 to-primary/30 blur-2xl lg:block" />
+              <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25, duration: 0.7 }}
+                  className="rounded-2xl border border-white/15 bg-gradient-to-br from-white/15 via-white/8 to-ocean/10 p-6 shadow-inner"
+                >
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/70 font-semibold">{activeSlide.stat.label}</p>
+                  <p className="mt-3 font-display text-5xl font-black text-white">{activeSlide.stat.value}</p>
+                  {activeSlide.stat.description && (
+                    <p className="mt-3 text-sm text-white/70">{activeSlide.stat.description}</p>
+                  )}
+                </motion.div>
+
+                {activeSlide.metrics?.length > 0 && (
                   <motion.div
-                    animate={{ y: [0, 15, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute bottom-0 left-0 right-0 p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.7 }}
+                    className="grid grid-cols-1 gap-4 sm:grid-cols-2"
                   >
-                    <div className="backdrop-blur-lg bg-night/70 border border-ocean/30 rounded-2xl p-6 shadow-2xl shadow-ocean/20">
-                      <div className="space-y-3">
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <p className="text-xs uppercase tracking-[0.3em] text-ocean/80 font-semibold mb-1">Featured</p>
-                            <p className="font-display text-2xl font-bold text-white line-clamp-1">{featuredPackage?.name}</p>
-                          </div>
-                          <div className="text-yellow-400 text-lg font-bold ml-3">
-                            {Math.floor(featuredPackage?.rating || 4.8)}⭐
-                          </div>
+                    {activeSlide.metrics.map((metric) => (
+                      <div key={metric.label} className="rounded-2xl border border-white/15 bg-white/10 p-5 shadow-sm">
+                        <div className="flex items-center gap-2">
+                          {metric.icon && <span className="text-xl">{metric.icon}</span>}
+                          <p className="text-xs uppercase tracking-[0.25em] text-ocean font-semibold">{metric.label}</p>
                         </div>
-                        <p className="text-sm text-white/60 flex gap-4">
-                          <span>📅 {featuredPackage?.duration}</span>
-                          <span>💰 {featuredPackage?.priceLabel}</span>
-                        </p>
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => navigate(`/package/${featuredPackage?.id}`)}
-                          className="w-full mt-3 py-2.5 bg-gradient-to-r from-ocean to-cyan-500 rounded-lg font-bold text-xs uppercase tracking-[0.2em] text-white hover:shadow-lg hover:shadow-ocean/50 transition-all"
-                        >
-                          Book Package
-                        </motion.button>
+                        <p className="mt-2 font-display text-2xl font-bold text-white">{metric.value}</p>
+                        {metric.description && <p className="mt-1 text-xs text-white/70">{metric.description}</p>}
                       </div>
-                    </div>
+                    ))}
                   </motion.div>
-                </div>
-              </motion.div>
+                )}
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35, duration: 0.7 }}
+                  className="flex items-center justify-between rounded-2xl border border-white/15 bg-white/10 p-5 shadow-sm"
+                >
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.25em] text-ocean font-semibold">Personal Travel Curator</p>
+                    <p className="mt-2 text-sm text-white/70">Message our design studio to begin your bespoke itinerary.</p>
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate('/contact')}
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-ocean to-primary text-white shadow-lg"
+                  >
+                    →
+                  </motion.button>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid sm:grid-cols-3 gap-4 mt-24"
-          >
-            {[
-              { icon: '🌍', title: 'Global Reach', desc: '150+ destinations worldwide' },
-              { icon: '✓', title: '100% Verified', desc: 'Trusted hotels & experiences' },
-              { icon: '🎁', title: 'Best Value', desc: '24/7 support & price match' },
-            ].map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
-                whileHover={{ borderColor: 'rgb(14, 165, 233)' }}
-                className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur p-6 hover:shadow-lg hover:shadow-ocean/20 transition-all"
+          <div className="mt-16 flex flex-col items-center gap-6">
+            <div className="flex items-center gap-6">
+              <button
+                type="button"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-night/80 text-white/80 shadow-sm transition hover:border-ocean hover:text-ocean"
+                onClick={() => handleNavigate((activeIndex - 1 + slides.length) % slides.length)}
               >
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <h4 className="font-display font-bold text-white mb-1">{item.title}</h4>
-                <p className="text-xs text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+                ←
+              </button>
+              <button
+                type="button"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-night/80 text-white/80 shadow-sm transition hover:border-ocean hover:text-ocean"
+                onClick={() => handleNavigate((activeIndex + 1) % slides.length)}
+              >
+                →
+              </button>
+            </div>
+            <div className="flex gap-3">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  type="button"
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === activeIndex ? 'w-12 bg-gradient-to-r from-ocean to-primary' : 'w-6 bg-white/20'
+                  }`}
+                  onClick={() => handleNavigate(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

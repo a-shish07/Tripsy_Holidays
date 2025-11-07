@@ -12,13 +12,13 @@ export default {
       },
       colors: {
         primary: {
-          DEFAULT: "#1D4ED8",
-          dark: "#0B2C6B",
+          DEFAULT: "#2F4FDB",
+          dark: "#162E72",
         },
-        accent: "#F97316",
-        ocean: "#0EA5E9",
-        sand: "#F3E8D5",
-        night: "#0F172A",
+        accent: "#F7902C",
+        ocean: "#3E6FD3",
+        sand: "#1B2B4F",
+        night: "#101C38",
       },
       boxShadow: {
         glow: "0 20px 45px rgba(14, 165, 233, 0.25)",

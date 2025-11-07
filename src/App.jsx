@@ -1,9 +1,12 @@
-import { useMemo, useEffect } from 'react';
+import { useMemo, useEffect, useState, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Footer from './sections/Footer';
 import PageTransition from './components/PageTransition';
+import BookNowForm from './components/BookNowForm';
+
+export const BookingContext = createContext();
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -13,6 +16,8 @@ import PackageDetailPage from './pages/PackageDetailPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import DomesticPackagesPage from './pages/DomesticPackagesPage';
 import InternationalPackagesPage from './pages/InternationalPackagesPage';
+import UttarakhandPackagesPage from './pages/UttarakhandPackagesPage';
+import UttarakhandPackageDetailPage from './pages/UttarakhandPackageDetailPage';
 import PackageDetailsPage from './pages/PackageDetailsPage';
 import ServiceDetailsPage from './pages/ServiceDetailsPage';
 import TestimonialsPage from './pages/TestimonialsPage';
@@ -32,34 +37,43 @@ function ScrollToTop() {
 function App() {
   const year = useMemo(() => new Date().getFullYear(), []);
   const location = useLocation();
+  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
+
+  const openBookingForm = () => setIsBookingFormOpen(true);
+  const closeBookingForm = () => setIsBookingFormOpen(false);
 
   return (
-    <div className="bg-night font-body text-white">
-      <ScrollToTop />
-      <Navigation />
-      <main className="pt-32">
-        <AnimatePresence mode="wait">
-          <PageTransition key={location.pathname}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/experience" element={<ExperiencePage />} />
-              <Route path="/destinations" element={<DestinationsPage />} />
-              <Route path="/packages" element={<PackageDetailPage />} />
-              <Route path="/packages/domestic" element={<DomesticPackagesPage />} />
-              <Route path="/packages/international" element={<InternationalPackagesPage />} />
-              <Route path="/package/:id" element={<PackageDetailsPage />} />
-              <Route path="/services" element={<ServiceDetailPage />} />
-              <Route path="/service/:id" element={<ServiceDetailsPage />} />
-              <Route path="/testimonials" element={<TestimonialsPage />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-            </Routes>
-          </PageTransition>
-        </AnimatePresence>
-      </main>
-      <Footer currentYear={year} />
-    </div>
+    <BookingContext.Provider value={{ openBookingForm, closeBookingForm }}>
+      <div className="bg-gradient-to-b from-night via-[#1a2d52] to-sand font-body text-slate-100">
+        <ScrollToTop />
+        <Navigation openBookingForm={openBookingForm} />
+        <main className="pt-32">
+          <AnimatePresence mode="wait">
+            <PageTransition key={location.pathname}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/experience" element={<ExperiencePage />} />
+                <Route path="/destinations" element={<DestinationsPage />} />
+                <Route path="/packages" element={<PackageDetailPage />} />
+                <Route path="/packages/domestic" element={<DomesticPackagesPage />} />
+                <Route path="/packages/international" element={<InternationalPackagesPage />} />
+                <Route path="/packages/uttarakhand" element={<UttarakhandPackagesPage />} />
+                <Route path="/packages/uttarakhand/:id" element={<UttarakhandPackageDetailPage />} />
+                <Route path="/package/:id" element={<PackageDetailsPage />} />
+                <Route path="/services" element={<ServiceDetailPage />} />
+                <Route path="/service/:id" element={<ServiceDetailsPage />} />
+                <Route path="/testimonials" element={<TestimonialsPage />} />
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+              </Routes>
+            </PageTransition>
+          </AnimatePresence>
+        </main>
+        <Footer currentYear={year} />
+        <BookNowForm isOpen={isBookingFormOpen} onClose={closeBookingForm} />
+      </div>
+    </BookingContext.Provider>
   );
 }
 
