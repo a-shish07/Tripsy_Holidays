@@ -5,18 +5,18 @@ import Container from '../components/Container';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
 import { BookingContext } from '../App';
-import { uttarakhandPackages } from '../data/uttarakhandPackages';
+import { himachalPackages } from '../data/himachalPackages';
 import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaChevronRight, FaStar } from 'react-icons/fa';
 
-function UttarakhandPackagesPage() {
+function HimachalPackagesPage() {
   const { openBookingForm } = useContext(BookingContext);
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(0);
 
-  const uttarakhandImages = [
+  const himachalImages = [
+    '/assests/Maligne Lake Spirit Island, Canada.jpg',
     '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
-    '/assests/Breathtaking Nature Scenery Landscape Image.jpg',
-    '/assests/Maligne Lake Spirit Island, Canada.jpg'
+    '/assests/Breathtaking Nature Scenery Landscape Image.jpg'
   ];
 
   const containerVariants = {
@@ -64,14 +64,14 @@ function UttarakhandPackagesPage() {
           >
             <div className="rounded-2xl overflow-hidden border border-white/10">
               <img
-                src={uttarakhandImages[selectedImage]}
-                alt="Uttarakhand Landscape"
+                src={himachalImages[selectedImage]}
+                alt="Himachal Pradesh Landscape"
                 className="w-full h-96 object-cover"
               />
             </div>
-            {uttarakhandImages.length > 1 && (
+            {himachalImages.length > 1 && (
               <div className="grid grid-cols-3 gap-2">
-                {uttarakhandImages.map((image, index) => (
+                {himachalImages.map((image, index) => (
                   <motion.button
                     key={index}
                     onClick={() => setSelectedImage(index)}
@@ -84,7 +84,7 @@ function UttarakhandPackagesPage() {
                   >
                     <img
                       src={image}
-                      alt={`Uttarakhand ${index + 1}`}
+                      alt={`Himachal ${index + 1}`}
                       className="w-full h-20 object-cover"
                     />
                   </motion.button>
@@ -101,18 +101,18 @@ function UttarakhandPackagesPage() {
           >
             <div>
               <span className="inline-block bg-ocean/20 text-ocean px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
-                ⭐ Divine Destination
+                ⭐ Mountain Paradise
               </span>
-              <h1 className="font-display text-4xl md:text-5xl text-white mb-3">Uttarakhand Adventures</h1>
+              <h1 className="font-display text-4xl md:text-5xl text-white mb-3">Himachal Adventures</h1>
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg">★</span>
-                  <span className="text-white font-semibold">4.8</span>
-                  <span className="text-white/50">(1,200+ reviews)</span>
+                  <span className="text-white font-semibold">4.9</span>
+                  <span className="text-white/50">(2,500+ reviews)</span>
                 </div>
               </div>
               <p className="text-white/70 text-lg leading-relaxed">
-                Discover the spiritual heart of India with our curated Uttarakhand packages. From sacred temples in Haridwar and Rishikesh to pristine lakes in Nainital, and thrilling wildlife safaris in Jim Corbett, experience the perfect blend of spirituality, adventure, and natural beauty in the lap of the Himalayas.
+                Discover the breathtaking beauty of Himachal Pradesh with our curated packages. From the snow-capped peaks of Manali and Shimla to the serene valleys of Kullu and the adventure capital of Himachal, experience the perfect blend of adventure, spirituality, and natural splendor in the lap of the mighty Himalayas.
               </p>
             </div>
 
@@ -120,7 +120,7 @@ function UttarakhandPackagesPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-xs uppercase text-white/50 font-bold mb-1">Duration</p>
-                  <p className="text-2xl font-display text-ocean font-bold">3-7 Days</p>
+                  <p className="text-2xl font-display text-ocean font-bold">4-7 Days</p>
                 </div>
                 <div>
                   <p className="text-xs uppercase text-white/50 font-bold mb-1">Group Size</p>
@@ -132,7 +132,7 @@ function UttarakhandPackagesPage() {
                 </div>
                 <div>
                   <p className="text-xs uppercase text-white/50 font-bold mb-1">Starting From</p>
-                  <p className="text-2xl font-display text-primary font-bold">₹12,000</p>
+                  <p className="text-2xl font-display text-primary font-bold">₹15,000</p>
                 </div>
               </div>
             </div>
@@ -145,8 +145,8 @@ function UttarakhandPackagesPage() {
                   'Daily Meals',
                   'Transportation',
                   'Professional Guide',
-                  'Temple Entry Fees',
-                  'Adventure Activities'
+                  'Adventure Activities',
+                  'Temple Entry Fees'
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 text-sm text-white/70">
                     <span className="w-1.5 h-1.5 rounded-full bg-ocean flex-shrink-0" />
@@ -177,12 +177,12 @@ function UttarakhandPackagesPage() {
             viewport={{ once: true, margin: '-100px' }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {uttarakhandPackages.map((pkg, index) => (
+            {himachalPackages.map((pkg, index) => (
               <motion.div
                 key={pkg.id}
                 variants={cardVariants}
                 whileHover="hover"
-                onClick={() => navigate(`/packages/uttarakhand/${pkg.id}`)}
+                onClick={() => navigate(`/packages/himachal/${pkg.id}`)}
                 className="group cursor-pointer h-full"
               >
                 <div className="relative h-full rounded-2xl border border-ocean/20 hover:border-ocean/60 bg-gradient-to-br from-white/10 to-white/5 p-8 backdrop-blur-md hover:bg-gradient-to-br hover:from-white/15 hover:to-white/8 transition-all duration-300 hover:shadow-2xl hover:shadow-ocean/20 overflow-hidden flex flex-col"
@@ -201,7 +201,7 @@ function UttarakhandPackagesPage() {
                       className="inline-block w-fit"
                     >
                       <span className="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.2em] bg-gradient-to-r from-ocean/30 to-primary/30 text-ocean border border-ocean/40">
-                        Package Option {index + 1} of 6
+                        Package Option {index + 1} of {himachalPackages.length}
                       </span>
                     </motion.div>
 
@@ -230,7 +230,7 @@ function UttarakhandPackagesPage() {
                       <div className="flex items-start gap-3">
                         <FaClock className="text-ocean w-4 h-4 mt-0.5 flex-shrink-0" />
                         <div>
-                          <p className="text-xs text-ocean/70 uppercase font-semibold">Perfect For</p>
+                          <p className="text-xs text-ocean/70 uppercase font-semibold">Best For</p>
                           <p className="text-white text-sm">{pkg.bestFor}</p>
                         </div>
                       </div>
@@ -269,6 +269,7 @@ function UttarakhandPackagesPage() {
 
 
 
+
       <section className="relative py-12 border-t border-white/10 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute left-0 top-1/2 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
@@ -288,7 +289,7 @@ function UttarakhandPackagesPage() {
                 Begin Your Journey
               </p>
               <h2 className="font-display text-2xl md:text-3xl text-white font-bold leading-snug">
-                Ready to Explore <span className="bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent">Uttarakhand?</span>
+                Ready to Explore <span className="bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent">Himachal?</span>
               </h2>
             </div>
 
@@ -320,4 +321,4 @@ function UttarakhandPackagesPage() {
   );
 }
 
-export default UttarakhandPackagesPage;
+export default HimachalPackagesPage;

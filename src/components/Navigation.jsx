@@ -194,7 +194,7 @@ function Navigation({ openBookingForm }) {
                         category.items.map((item) => (
                           <Link
                             key={item.id}
-                            to={item.subcategory === 'Uttarakhand' ? '/packages/uttarakhand' : `/package/${item.id}`}
+                            to={item.subcategory === 'Uttarakhand' ? '/packages/uttarakhand' : item.subcategory === 'Himachal Pradesh' ? '/packages/himachal' : item.subcategory === 'Kashmir' ? '/packages/kashmir' : `/package/${item.id}`}
                             className="block px-6 py-3 text-sm text-slate-200 hover:text-ocean hover:bg-ocean/10 transition-all duration-200 font-medium tracking-wide border-b border-white/10 last:border-b-0"
                           >
                             {item.label}
@@ -341,7 +341,7 @@ function Navigation({ openBookingForm }) {
                           category.items.map((item) => (
                             <Link
                               key={item.id}
-                              to={item.subcategory === 'Uttarakhand' ? '/packages/uttarakhand' : `/package/${item.id}`}
+                              to={item.subcategory === 'Uttarakhand' ? '/packages/uttarakhand' : item.subcategory === 'Himachal Pradesh' ? '/packages/himachal' : item.subcategory === 'Kashmir' ? '/packages/kashmir' : `/package/${item.id}`}
                               className="block px-3 py-1.5 text-sm text-slate-200 hover:text-ocean hover:bg-ocean/5 rounded-lg transition-all duration-200 font-medium tracking-wide"
                               onClick={() => {
                                 setIsOpen(false);

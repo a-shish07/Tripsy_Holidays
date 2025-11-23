@@ -18,6 +18,10 @@ import DomesticPackagesPage from './pages/DomesticPackagesPage';
 import InternationalPackagesPage from './pages/InternationalPackagesPage';
 import UttarakhandPackagesPage from './pages/UttarakhandPackagesPage';
 import UttarakhandPackageDetailPage from './pages/UttarakhandPackageDetailPage';
+import HimachalPackagesPage from './pages/HimachalPackagesPage';
+import HimachalPackageDetailPage from './pages/HimachalPackageDetailPage';
+import KashmirPackagesPage from './pages/KashmirPackagesPage';
+import KashmirPackageDetailPage from './pages/KashmirPackageDetailPage';
 import PackageDetailsPage from './pages/PackageDetailsPage';
 import ServiceDetailsPage from './pages/ServiceDetailsPage';
 import TestimonialsPage from './pages/TestimonialsPage';
@@ -60,6 +64,10 @@ function App() {
                 <Route path="/packages/international" element={<InternationalPackagesPage />} />
                 <Route path="/packages/uttarakhand" element={<UttarakhandPackagesPage />} />
                 <Route path="/packages/uttarakhand/:id" element={<UttarakhandPackageDetailPage />} />
+                <Route path="/packages/himachal" element={<HimachalPackagesPage />} />
+                <Route path="/packages/himachal/:id" element={<HimachalPackageDetailPage />} />
+                <Route path="/packages/kashmir" element={<KashmirPackagesPage />} />
+                <Route path="/packages/kashmir/:id" element={<KashmirPackageDetailPage />} />
                 <Route path="/package/:id" element={<PackageDetailsPage />} />
                 <Route path="/services" element={<ServiceDetailPage />} />
                 <Route path="/service/:id" element={<ServiceDetailsPage />} />

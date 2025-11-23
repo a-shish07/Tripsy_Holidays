@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Container from '../components/Container';
 import Button from '../components/Button';
+import Policies from '../components/Policies';
 import { packages } from '../data/packages';
+import { getPackageImage } from '../data/images';
 
 function PackageDetailsPage() {
   const { id } = useParams();
@@ -27,15 +29,51 @@ function PackageDetailsPage() {
 
   return (
     <div className="space-y-0">
+      <section className="relative min-h-[300px] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+          style={{ backgroundImage: `url(${getPackageImage(pkg.subcategory)})` }}
+        />
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 z-20">
+          <div className="absolute right-[-10%] top-20 h-[350px] w-[350px] rounded-full bg-ocean/10 blur-3xl animate-pulse" />
+          <div className="absolute left-[-15%] top-40 h-[300px] w-[300px] rounded-full bg-primary/8 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+        <Container className="pt-12 md:pt-16 pb-10 relative z-30">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-4"
+          >
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={() => navigate(-1)}
+              whileHover={{ x: -5 }}
+              className="flex items-center gap-2 text-ocean hover:text-primary transition-colors text-base font-semibold uppercase tracking-[0.2em]"
+            >
+              <span>←</span>
+              <span>Back</span>
+            </motion.button>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="space-y-1.5"
+            >
+              <p className="text-base uppercase tracking-[0.3em] bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent font-bold">{pkg.category} Package</p>
+              <h1 className="text-3xl md:text-4xl font-display font-bold text-white leading-snug">
+                {pkg.name}
+              </h1>
+              <p className="text-base text-white/70 font-light">{pkg.description}</p>
+            </motion.div>
+          </motion.div>
+        </Container>
+      </section>
+
       <Container className="pt-8">
-        <motion.button
-          onClick={() => navigate(-1)}
-          whileHover={{ x: -5 }}
-          className="flex items-center gap-2 text-ocean hover:text-primary transition-colors mb-8"
-        >
-          <span>←</span>
-          <span className="text-sm font-semibold uppercase tracking-wide">Back</span>
-        </motion.button>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           <motion.div
@@ -207,6 +245,8 @@ function PackageDetailsPage() {
             </div>
           </div>
         </div>
+
+        <Policies />
       </Container>
     </div>
   );

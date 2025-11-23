@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Container from '../components/Container';
 import Button from '../components/Button';
+import Policies from '../components/Policies';
 import { BookingContext } from '../App';
 import { uttarakhandPackages } from '../data/uttarakhandPackages';
 import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaCheckCircle, FaArrowLeft, FaChevronRight, FaStar } from 'react-icons/fa';
@@ -33,7 +34,8 @@ function UttarakhandPackageDetailPage() {
 
   return (
     <div className="bg-night">
-      <section className="relative min-h-auto overflow-hidden pt-12 md:pt-16 pb-10">
+      <section className="relative min-h-auto overflow-hidden pt-12 md:pt-16 pb-10" style={{ backgroundImage: `url(${package_.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-black/40 -z-10" />
         <div className="absolute inset-0 -z-10">
           <div className="absolute right-[-10%] top-20 h-[350px] w-[350px] rounded-full bg-ocean/10 blur-3xl animate-pulse" />
           <div className="absolute left-[-15%] top-40 h-[300px] w-[300px] rounded-full bg-primary/8 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -305,6 +307,8 @@ function UttarakhandPackageDetailPage() {
           </motion.div>
         </Container>
       </section>
+
+      <Policies />
 
       <section className="relative py-10 border-t border-white/10">
         <Container>

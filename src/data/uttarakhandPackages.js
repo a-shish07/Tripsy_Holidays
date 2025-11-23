@@ -6,6 +6,7 @@ export const uttarakhandPackages = [
     duration: '3 Nights / 4 Days',
     pickup: 'Haridwar/Delhi',
     destinations: ['Haridwar', 'Rishikesh', 'Mussoorie'],
+    image: '/assests/Breathtaking%20Nature%20Landscape%20Image%20Ideas.jpg',
     highlights: ['Mansa Devi Temple', 'Chandi Devi Temple', 'Ram Jhula & Laxman Jhula', 'Kempty Falls', 'Lal Tibba'],
     itinerary: [
       {
@@ -74,6 +75,7 @@ export const uttarakhandPackages = [
     duration: '2 Nights / 3 Days',
     pickup: 'Haridwar/Delhi',
     destinations: ['Haridwar', 'Rishikesh'],
+    image: '/assests/Breathtaking%20Nature%20Scenery%20Landscape%20Image.jpg',
     highlights: ['Mansa Devi Temple', 'Chandi Devi Temple', 'Ram Jhula', 'Beatles Ashram', 'Triveni Ghat'],
     itinerary: [
       {
@@ -131,6 +133,7 @@ export const uttarakhandPackages = [
     duration: '3 Nights / 4 Days',
     pickup: 'Kathgodam / Delhi / Nainital',
     destinations: ['Nainital', 'Jim Corbett National Park'],
+    image: '/assests/Maligne%20Lake%20Spirit%20Island,%20Canada.jpg',
     highlights: ['Naina Devi Temple', 'Naini Lake', 'Jim Corbett Safari', 'Royal Bengal Tiger', 'Jungle wilderness'],
     itinerary: [
       {
@@ -199,6 +202,7 @@ export const uttarakhandPackages = [
     duration: '6 Nights / 7 Days',
     pickup: 'Kathgodam / Delhi',
     destinations: ['Nainital', 'Ranikhet', 'Mukteshwar', 'Almora', 'Kausani'],
+    image: '/assests/Tropical%20Beach%20House%20With%20Palm%20Trees%20And%20Crystal%20Clear%20Water%20Photo%20And%20Picture%20For%20Free%20Download%20-%20Pngtree.jpg',
     highlights: ['Naina Devi Temple', 'Naini Lake', 'Snow View Point', 'Bhimtal', 'Sattal', 'Naukuchiatal', 'Hanuman Garhi Temple', 'Golf Ground', 'Jhula Devi Temple', 'Chauli Ki Jali', 'Mukteshwar Temple', 'Bhalu Gaad Waterfall', 'Kasar Devi Temple', 'Bright End Corner', 'Deer Park', 'Anasakti Ashram', 'Baijnath Temple', 'Rudradhari Falls & Caves'],
     itinerary: [
       {
@@ -293,6 +297,7 @@ export const uttarakhandPackages = [
     duration: '3 Nights / 4 Days',
     pickup: 'Kathgodam / Delhi',
     destinations: ['Nainital', 'Kainchi Dham', 'Nearby Lakes'],
+    image: '/assests/A%20serene%20beach%20scene%20with%20turquoise%20waters,%20lush%20greenery,%20and%20majestic%20cliffs%20in%20the%20video.jpg',
     highlights: ['Naina Devi Temple', 'Naini Lake', 'Snow View Point', 'Kainchi Dham Ashram', 'Bhimtal Lake', 'Sattal Lake', 'Naukuchiatal Lake', 'Hanuman Garhi Temple', 'Eco Cave Gardens', 'Tiffin Top'],
     itinerary: [
       {
@@ -357,6 +362,7 @@ export const uttarakhandPackages = [
     duration: '5 Nights / 6 Days',
     pickup: 'Delhi / Dehradun / Kathgodam',
     destinations: ['Mussoorie', 'Nainital', 'Jim Corbett'],
+    image: '/assests/View%20Of%20Rice%20Field%20In%20Rural%20Area%20Of%20Thailand%20Outdoor%20Nature%20Of%20Mountain%20Cottage,%20Rice,%20Green,%20Field%20Background%20Image%20And%20Wallpaper%20for%20Free%20Download.jpg',
     highlights: ['Kempty Falls', 'Company Garden', 'Camel\'s Back Road', 'Lal Tibba', 'Gun Hill Point', 'Naina Devi Temple', 'Nainital Zoo', 'Snow View Point', 'Bhimtal', 'Sattal', 'Naukuchiatal', 'Garjiya Devi Temple', 'Corbett Museum', 'Jim Corbett Safari', 'Royal Bengal Tiger'],
     itinerary: [
       {

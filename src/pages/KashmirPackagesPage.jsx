@@ -2,21 +2,20 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Container from '../components/Container';
-import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
 import { BookingContext } from '../App';
-import { uttarakhandPackages } from '../data/uttarakhandPackages';
+import { kashmirPackages } from '../data/kashmirPackages';
 import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaChevronRight, FaStar } from 'react-icons/fa';
 
-function UttarakhandPackagesPage() {
+function KashmirPackagesPage() {
   const { openBookingForm } = useContext(BookingContext);
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(0);
 
-  const uttarakhandImages = [
+  const kashmirImages = [
+    '/assests/Maligne Lake Spirit Island, Canada.jpg',
     '/assests/Breathtaking Nature Landscape Image Ideas.jpg',
-    '/assests/Breathtaking Nature Scenery Landscape Image.jpg',
-    '/assests/Maligne Lake Spirit Island, Canada.jpg'
+    '/assests/Breathtaking Nature Scenery Landscape Image.jpg'
   ];
 
   const containerVariants = {
@@ -64,14 +63,14 @@ function UttarakhandPackagesPage() {
           >
             <div className="rounded-2xl overflow-hidden border border-white/10">
               <img
-                src={uttarakhandImages[selectedImage]}
-                alt="Uttarakhand Landscape"
+                src={kashmirImages[selectedImage]}
+                alt="Kashmir Landscape"
                 className="w-full h-96 object-cover"
               />
             </div>
-            {uttarakhandImages.length > 1 && (
+            {kashmirImages.length > 1 && (
               <div className="grid grid-cols-3 gap-2">
-                {uttarakhandImages.map((image, index) => (
+                {kashmirImages.map((image, index) => (
                   <motion.button
                     key={index}
                     onClick={() => setSelectedImage(index)}
@@ -84,7 +83,7 @@ function UttarakhandPackagesPage() {
                   >
                     <img
                       src={image}
-                      alt={`Uttarakhand ${index + 1}`}
+                      alt={`Kashmir ${index + 1}`}
                       className="w-full h-20 object-cover"
                     />
                   </motion.button>
@@ -101,18 +100,18 @@ function UttarakhandPackagesPage() {
           >
             <div>
               <span className="inline-block bg-ocean/20 text-ocean px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
-                ⭐ Divine Destination
+                ⭐ Paradise on Earth
               </span>
-              <h1 className="font-display text-4xl md:text-5xl text-white mb-3">Uttarakhand Adventures</h1>
+              <h1 className="font-display text-4xl md:text-5xl text-white mb-3">Kashmir Adventures</h1>
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg">★</span>
-                  <span className="text-white font-semibold">4.8</span>
-                  <span className="text-white/50">(1,200+ reviews)</span>
+                  <span className="text-white font-semibold">4.9</span>
+                  <span className="text-white/50">(2,500+ reviews)</span>
                 </div>
               </div>
               <p className="text-white/70 text-lg leading-relaxed">
-                Discover the spiritual heart of India with our curated Uttarakhand packages. From sacred temples in Haridwar and Rishikesh to pristine lakes in Nainital, and thrilling wildlife safaris in Jim Corbett, experience the perfect blend of spirituality, adventure, and natural beauty in the lap of the Himalayas.
+                Discover the breathtaking beauty of Kashmir, often called "Paradise on Earth." From the serene Dal Lake and Mughal Gardens of Srinagar to the snowy peaks of Gulmarg, lush valleys of Pahalgam, and pristine meadows of Sonmarg, experience the perfect blend of natural splendor, cultural heritage, and peaceful ambiance in the heart of the Himalayas.
               </p>
             </div>
 
@@ -120,7 +119,7 @@ function UttarakhandPackagesPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-xs uppercase text-white/50 font-bold mb-1">Duration</p>
-                  <p className="text-2xl font-display text-ocean font-bold">3-7 Days</p>
+                  <p className="text-2xl font-display text-ocean font-bold">4-7 Days</p>
                 </div>
                 <div>
                   <p className="text-xs uppercase text-white/50 font-bold mb-1">Group Size</p>
@@ -141,12 +140,12 @@ function UttarakhandPackagesPage() {
               <p className="text-xs uppercase text-white/50 font-bold tracking-wide">What's Included</p>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  'Hotel Accommodations',
+                  'Hotel & Houseboat Accommodations',
                   'Daily Meals',
                   'Transportation',
                   'Professional Guide',
-                  'Temple Entry Fees',
-                  'Adventure Activities'
+                  'Shikara Ride',
+                  'Garden Entry Fees'
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 text-sm text-white/70">
                     <span className="w-1.5 h-1.5 rounded-full bg-ocean flex-shrink-0" />
@@ -177,12 +176,12 @@ function UttarakhandPackagesPage() {
             viewport={{ once: true, margin: '-100px' }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {uttarakhandPackages.map((pkg, index) => (
+            {kashmirPackages.map((pkg, index) => (
               <motion.div
                 key={pkg.id}
                 variants={cardVariants}
                 whileHover="hover"
-                onClick={() => navigate(`/packages/uttarakhand/${pkg.id}`)}
+                onClick={() => navigate(`/packages/kashmir/${pkg.id}`)}
                 className="group cursor-pointer h-full"
               >
                 <div className="relative h-full rounded-2xl border border-ocean/20 hover:border-ocean/60 bg-gradient-to-br from-white/10 to-white/5 p-8 backdrop-blur-md hover:bg-gradient-to-br hover:from-white/15 hover:to-white/8 transition-all duration-300 hover:shadow-2xl hover:shadow-ocean/20 overflow-hidden flex flex-col"
@@ -201,7 +200,7 @@ function UttarakhandPackagesPage() {
                       className="inline-block w-fit"
                     >
                       <span className="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.2em] bg-gradient-to-r from-ocean/30 to-primary/30 text-ocean border border-ocean/40">
-                        Package Option {index + 1} of 6
+                        Package Option {index + 1} of {kashmirPackages.length}
                       </span>
                     </motion.div>
 
@@ -230,7 +229,7 @@ function UttarakhandPackagesPage() {
                       <div className="flex items-start gap-3">
                         <FaClock className="text-ocean w-4 h-4 mt-0.5 flex-shrink-0" />
                         <div>
-                          <p className="text-xs text-ocean/70 uppercase font-semibold">Perfect For</p>
+                          <p className="text-xs text-ocean/70 uppercase font-semibold">Best For</p>
                           <p className="text-white text-sm">{pkg.bestFor}</p>
                         </div>
                       </div>
@@ -241,7 +240,7 @@ function UttarakhandPackagesPage() {
                       <div className="flex flex-wrap gap-2">
                         {pkg.highlights.slice(0, 4).map((highlight, idx) => (
                           <span key={idx} className="text-xs px-3 py-1.5 rounded-lg bg-ocean/15 text-ocean/90 border border-ocean/30 hover:bg-ocean/25 transition-colors">
-                            {highlight}
+                            {highlight.split(' ').slice(0, 3).join(' ')}...
                           </span>
                         ))}
                         {pkg.highlights.length > 4 && (
@@ -269,6 +268,7 @@ function UttarakhandPackagesPage() {
 
 
 
+
       <section className="relative py-12 border-t border-white/10 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute left-0 top-1/2 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
@@ -288,12 +288,12 @@ function UttarakhandPackagesPage() {
                 Begin Your Journey
               </p>
               <h2 className="font-display text-2xl md:text-3xl text-white font-bold leading-snug">
-                Ready to Explore <span className="bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent">Uttarakhand?</span>
+                Ready to Explore <span className="bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent">Kashmir?</span>
               </h2>
             </div>
 
             <p className="text-sm text-white/70 max-w-xl mx-auto leading-relaxed font-light">
-              Book your adventure today and create unforgettable memories in the Himalayas.
+              Book your adventure today and create unforgettable memories in Paradise on Earth.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
@@ -320,4 +320,4 @@ function UttarakhandPackagesPage() {
   );
 }
 
-export default UttarakhandPackagesPage;
+export default KashmirPackagesPage;
