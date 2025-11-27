@@ -54,7 +54,7 @@ function ExperienceSection() {
             viewport={{ once: true, amount: 0.3 }}
             className="group relative"
           >
-            <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-night/85 to-night/65 p-8 h-full transition-all duration-300 hover:-translate-y-1 hover:border-ocean/40 hover:shadow-[0_35px_80px_rgba(46,76,165,0.45)] backdrop-blur">
+            <div className="rounded-3xl border border-black/10 bg-gradient-to-br from-night/85 to-night/65 p-8 h-full transition-all duration-300 hover:-translate-y-1 hover:border-ocean/40 hover:shadow-[0_35px_80px_rgba(46,76,165,0.45)] backdrop-blur">
               <div className="flex items-start justify-between mb-6">
                 <div className="text-5xl">{item.icon}</div>
                 <span className="text-xs font-bold uppercase tracking-[0.3em] text-ocean bg-ocean/15 px-3 py-1 rounded-full">
@@ -65,7 +65,7 @@ function ExperienceSection() {
               <h3 className="font-display text-2xl text-white mb-3 group-hover:text-ocean transition-colors">{item.title}</h3>
               <p className="text-sm leading-relaxed text-white/70 mb-6">{item.description}</p>
 
-              <div className="space-y-3 pt-6 border-t border-white/10">
+              <div className="space-y-3 pt-6 border-t border-black/10">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-semibold">Key Benefits</p>
                 <ul className="space-y-2">
                   {item.benefits.map((benefit) => (
@@ -88,7 +88,7 @@ function ExperienceSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="mt-16 rounded-3xl border border-white/10 bg-gradient-to-br from-night/85 to-night/65 p-8 shadow-[0_35px_80px_rgba(16,28,56,0.5)] backdrop-blur"
+        className="mt-16 rounded-3xl border border-black/10 bg-gradient-to-br from-night/85 to-night/65 p-8 shadow-[0_35px_80px_rgba(16,28,56,0.5)] backdrop-blur"
       >
         <div className="grid md:grid-cols-3 gap-8 text-center">
           {[

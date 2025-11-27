@@ -77,6 +77,7 @@ function VideoTestimonialsSection() {
           </>
         }
         subtitle="Watch authentic testimonials from travelers who've experienced unforgettable journeys with Tripsy Holidays."
+        tone="dark"
       />
 
       <div className="mt-16 space-y-12">

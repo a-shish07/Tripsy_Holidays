@@ -10,17 +10,17 @@ function HomePage() {
   return (
     <div className="space-y-0">
       <HeroSection />
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
       <ServiceDetailsSection />
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
       <WhyChooseUsSection />
-      <div className="border-t border-white/10" />
-      <DestinationsSection />
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
+      {/* <DestinationsSection /> */}
+      <div className="border-t border-black/10" />
       <PackagesSection />
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
       <TestimonialsSection />
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
       {/* <CallToActionSection /> */}
     </div>
   );

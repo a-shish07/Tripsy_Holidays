@@ -48,12 +48,12 @@ function App() {
 
   return (
     <BookingContext.Provider value={{ openBookingForm, closeBookingForm }}>
-      <div className="bg-gradient-to-b from-night via-[#1a2d52] to-sand font-body text-slate-100">
+      <div className="min-h-screen bg-gradient-to-b from-mist via-white to-blossom font-body text-slate-800">
         <ScrollToTop />
         <Navigation openBookingForm={openBookingForm} />
         <main className="pt-32">
           <AnimatePresence mode="wait">
-            <PageTransition key={location.pathname}>
+            {/* <PageTransition key={location.pathname}> */}
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
@@ -75,7 +75,7 @@ function App() {
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/contact" element={<ContactPage />} />
               </Routes>
-            </PageTransition>
+            {/* </PageTransition> */}
           </AnimatePresence>
         </main>
         <Footer currentYear={year} />

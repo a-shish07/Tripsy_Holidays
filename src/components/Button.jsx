@@ -8,13 +8,13 @@ const sizeStyles = {
 
 const variantStyles = {
   primary:
-    'bg-gradient-to-r from-ocean to-primary hover:from-primary hover:to-ocean text-white shadow-[0_18px_35px_rgba(14,165,233,0.25)] focus-visible:ring-ocean/50',
+    'bg-gradient-to-r from-primary to-ocean hover:from-ocean hover:to-primary text-white shadow-[0_20px_35px_rgba(14,165,233,0.25)] focus-visible:ring-ocean/40',
   secondary:
-    'bg-night/80 text-ocean border border-ocean/30 hover:bg-night focus-visible:ring-ocean/30 shadow-sm',
+    'bg-white text-primary border border-slate-200 hover:border-primary/50 hover:shadow-lg focus-visible:ring-primary/30 shadow-sm',
   outline:
-    'border border-ocean/40 hover:bg-ocean/10 focus-visible:ring-ocean/40 text-slate-100',
+    'border border-primary/30 hover:bg-primary/10 focus-visible:ring-primary/30 text-slate-700',
   glow:
-    'bg-gradient-to-r from-ocean to-primary hover:from-primary hover:to-ocean text-white shadow-[0_25px_45px_rgba(14,165,233,0.35)] focus-visible:ring-ocean/50',
+    'bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent text-white shadow-[0_30px_55px_rgba(255,138,92,0.35)] focus-visible:ring-accent/40',
 };
 
 function Button({
@@ -28,7 +28,7 @@ function Button({
     <button
       type={type}
       className={clsx(
-        'inline-flex items-center justify-center rounded-full font-display font-bold tracking-widest transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-night uppercase',
+        'inline-flex items-center justify-center rounded-full font-display font-bold tracking-widest transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white uppercase',
         sizeStyles[size],
         variantStyles[variant],
         className,

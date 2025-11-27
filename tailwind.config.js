@@ -2,7 +2,8 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx,ts,tsx,css}",
+    "./src/index.css",
   ],
   theme: {
     extend: {
@@ -12,19 +13,28 @@ export default {
       },
       colors: {
         primary: {
-          DEFAULT: "#2F4FDB",
-          dark: "#162E72",
+          DEFAULT: "#2563EB",
+          dark: "#1D4ED8",
         },
-        accent: "#F7902C",
-        ocean: "#3E6FD3",
-        sand: "#1B2B4F",
-        night: "#101C38",
+        accent: "#FF8A5C",
+        ocean: "#0EA5E9",
+        sand: "#FEF5ED",
+        night: "#0F172A",
+        mist: "#F6FBFF",
+        blossom: "#FFE8D9",
+        lagoon: "#9EEAF9",
+      },
+      gradientColorStops: {
+        mist: "#F6FBFF",
+        sand: "#FEF5ED",
+        blossom: "#FFE8D9",
       },
       boxShadow: {
-        glow: "0 20px 45px rgba(14, 165, 233, 0.25)",
+        glow: "0 25px 55px rgba(14, 165, 233, 0.25)",
       },
       backgroundImage: {
-        "hero-gradient": "radial-gradient(circle at 20% 20%, rgba(14,165,233,0.25), rgba(15,23,42,0.95))",
+        "hero-gradient": "radial-gradient(circle at 20% 20%, rgba(14,165,233,0.2), rgba(255,255,255,0.95))",
+        "soft-radial": "radial-gradient(circle at 20% 20%, rgba(14,165,233,0.12), transparent 55%)",
       },
     },
   },

@@ -73,11 +73,11 @@ function PackageDetailPage() {
         </motion.div>
       </Container>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
 
       <PackagesSection />
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
 
       <Container className="bg-gradient-to-b from-transparent to-white/5">
         <motion.div
@@ -99,7 +99,7 @@ function PackageDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center"
+                className="rounded-2xl border border-black/10 bg-white/5 p-8 text-center"
               >
                 <p className="text-xs uppercase tracking-[0.4em] text-white/50 mb-3">{item.label}</p>
                 <p className="font-display text-xl text-white">{item.value}</p>
@@ -107,7 +107,7 @@ function PackageDetailPage() {
             ))}
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-12 text-center space-y-6">
+          <div className="rounded-3xl border border-black/10 bg-white/5 p-12 text-center space-y-6">
             <p className="text-xs uppercase tracking-[0.4em] text-white/50">Ready to Plan?</p>
             <h3 className="font-display text-3xl md:text-4xl text-white">
               Craft Your Perfect Escape

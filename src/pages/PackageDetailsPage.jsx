@@ -82,7 +82,7 @@ function PackageDetailsPage() {
             transition={{ duration: 0.6 }}
             className="space-y-4"
           >
-            <div className="rounded-2xl overflow-hidden border border-white/10">
+            <div className="rounded-2xl overflow-hidden border border-black/10">
               <img
                 src={pkg.images[selectedImage]}
                 alt={pkg.name}
@@ -99,7 +99,7 @@ function PackageDetailsPage() {
                     className={`rounded-lg overflow-hidden border-2 transition-all ${
                       selectedImage === index
                         ? 'border-ocean'
-                        : 'border-white/20 hover:border-ocean/50'
+                        : 'border-black/20 hover:border-ocean/50'
                     }`}
                   >
                     <img
@@ -136,7 +136,7 @@ function PackageDetailsPage() {
               <p className="text-white/70 text-lg leading-relaxed">{pkg.fullDescription}</p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
+            <div className="rounded-2xl border border-black/10 bg-white/5 p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-xs uppercase text-white/50 font-bold mb-1">Duration</p>
@@ -180,7 +180,7 @@ function PackageDetailsPage() {
           </motion.div>
         </div>
 
-        <div className="border-t border-white/10 py-12">
+        <div className="border-t border-black/10 py-12">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <div>
@@ -193,7 +193,7 @@ function PackageDetailsPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className="rounded-xl border border-white/10 bg-white/5 p-6 hover:border-ocean/50 transition-all"
+                      className="rounded-xl border border-black/10 bg-white/5 p-6 hover:border-ocean/50 transition-all"
                     >
                       <div className="flex gap-4">
                         <div className="flex-shrink-0">
@@ -224,7 +224,7 @@ function PackageDetailsPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="rounded-xl border border-white/10 bg-white/5 p-6 space-y-4 sticky top-32">
+              <div className="rounded-xl border border-black/10 bg-white/5 p-6 space-y-4 sticky top-32">
                 <h3 className="font-display text-xl text-white">Highlights</h3>
                 <div className="space-y-2">
                   {pkg.highlights.map((highlight) => (
@@ -235,7 +235,7 @@ function PackageDetailsPage() {
                   ))}
                 </div>
 
-                <div className="border-t border-white/10 pt-4 space-y-3">
+                <div className="border-t border-black/10 pt-4 space-y-3">
                   <p className="text-xs uppercase text-white/50 font-bold">Questions?</p>
                   <Button variant="secondary" className="w-full" size="sm">
                     Contact Us

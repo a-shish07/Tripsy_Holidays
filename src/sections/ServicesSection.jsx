@@ -28,7 +28,7 @@ function ServicesSection() {
             viewport={{ once: true, amount: 0.2 }}
             onClick={() => navigate(`/service/${service.id}`)}
             whileHover={{ y: -8 }}
-            className="group flex flex-col gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-white/12 to-white/5 p-8 backdrop-blur hover:border-ocean/60 hover:from-white/15 hover:to-white/8 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-ocean/25 cursor-pointer"
+            className="group flex flex-col gap-6 rounded-3xl border border-black/10 bg-gradient-to-br from-white/12 to-white/5 p-8 backdrop-blur hover:border-ocean/60 hover:from-white/15 hover:to-white/8 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-ocean/25 cursor-pointer"
           >
             <div className="flex items-start justify-between">
               <motion.span 
@@ -50,7 +50,7 @@ function ServicesSection() {
               <p className="text-sm leading-relaxed text-white/75 font-body mb-3 line-clamp-2">{service.description}</p>
             </div>
 
-            <div className="space-y-3 py-4 border-t border-white/10">
+            <div className="space-y-3 py-4 border-t border-black/10">
               <p className="text-xs uppercase tracking-[0.25em] text-ocean/80 font-display font-bold">Top Features</p>
               <div className="space-y-2">
                 {service.features.slice(0, 3).map((feature) => (
@@ -62,7 +62,7 @@ function ServicesSection() {
               </div>
             </div>
 
-            <div className="mt-auto pt-6 border-t border-white/10">
+            <div className="mt-auto pt-6 border-t border-black/10">
               <motion.button 
                 className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-ocean/80 hover:text-ocean transition-colors font-display font-bold group/link"
                 whileHover={{ x: 5 }}
@@ -80,7 +80,7 @@ function ServicesSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="mt-16 rounded-3xl border border-white/10 bg-gradient-to-r from-primary/20 via-ocean/15 to-primary/20 p-8 md:p-16 backdrop-blur hover:border-ocean/40 transition-all duration-300 hover:shadow-lg hover:shadow-ocean/20"
+        className="mt-16 rounded-3xl border border-black/10 bg-gradient-to-r from-primary/20 via-ocean/15 to-primary/20 p-8 md:p-16 backdrop-blur hover:border-ocean/40 transition-all duration-300 hover:shadow-lg hover:shadow-ocean/20"
       >
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -125,7 +125,7 @@ function ServicesSection() {
               <motion.div 
                 key={item.label} 
                 whileHover={{ y: -4 }}
-                className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/3 p-6 hover:bg-white/15 hover:border-ocean/40 transition-all text-center"
+                className="rounded-2xl border border-black/10 bg-gradient-to-br from-white/10 to-white/3 p-6 hover:bg-white/15 hover:border-ocean/40 transition-all text-center"
               >
                 <p className="text-3xl mb-2">{item.icon}</p>
                 <p className="font-display text-2xl text-ocean mt-2 font-bold">{item.label}</p>

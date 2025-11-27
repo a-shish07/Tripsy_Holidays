@@ -1,20 +1,45 @@
 import { useContext, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Container from '../components/Container';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
 import { BookingContext } from '../App';
 import { imageAssets } from '../data/images';
-import { FaCheckCircle, FaUsers, FaGlobe, FaHeart } from 'react-icons/fa';
+
+// Floating particles component
+const FloatingParticles = ({ count = 15 }) => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {Array.from({ length: count }).map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full bg-gradient-to-r from-primary/10 to-accent/10"
+          style={{
+            width: Math.random() * 60 + 20,
+            height: Math.random() * 60 + 20,
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -25, 0],
+            x: [0, Math.random() * 15 - 7.5, 0],
+            opacity: [0.3, 0.7, 0.3],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: Math.random() * 5 + 3,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 function AboutPage() {
   const { openBookingForm } = useContext(BookingContext);
-  
-  const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-  };
+  const [activeValue, setActiveValue] = useState(0);
 
   const team = [
     {
@@ -22,24 +47,28 @@ function AboutPage() {
       role: 'Founder & Chief Travel Curator',
       image: imageAssets.team.member1,
       bio: 'With 15+ years of luxury travel expertise, Aria founded Tripsy Holidays to reimagine how travelers experience the world.',
+      gradient: 'from-blue-500 to-cyan-600'
     },
     {
       name: 'Marcus Johnson',
       role: 'Experience Designer',
       image: imageAssets.team.member2,
       bio: 'A creative visionary who crafts immersive experiences blending culture, comfort, and adventure.',
+      gradient: 'from-purple-500 to-pink-600'
     },
     {
       name: 'Priya Desai',
       role: 'Destination Specialist',
       image: imageAssets.team.member3,
       bio: 'Expert navigator of hidden gems and iconic destinations across Asia, Europe, and beyond.',
+      gradient: 'from-amber-500 to-orange-600'
     },
     {
       name: 'David Chen',
       role: 'Guest Relations Manager',
       image: imageAssets.team.member4,
       bio: 'Dedicated to ensuring every guest receives personalized attention and unforgettable service.',
+      gradient: 'from-emerald-500 to-green-600'
     },
   ];
 
@@ -47,101 +76,190 @@ function AboutPage() {
     {
       icon: '🌍',
       title: 'Responsible Exploration',
-      description: 'We partner with local communities to create sustainable travel that respects cultures and environments.',
+      description: 'We partner with local communities to create sustainable travel that respects cultures and environments. Every destination benefits from our ethical tourism practices.',
+      gradient: 'from-blue-500 to-cyan-600'
     },
     {
       icon: '✨',
       title: 'Authentic Experiences',
-      description: 'Every journey is curated to offer genuine cultural immersion and meaningful connections.',
+      description: 'Every journey is curated to offer genuine cultural immersion and meaningful connections. No cookie-cutter tours—only bespoke adventures.',
+      gradient: 'from-purple-500 to-pink-600'
     },
     {
       icon: '🎯',
       title: 'Personalized Service',
-      description: 'Your preferences shape every detail. We listen, adapt, and deliver your perfect journey.',
+      description: 'Your preferences shape every detail. We listen, adapt, and deliver your perfect journey. Dedicated support from start to finish.',
+      gradient: 'from-amber-500 to-orange-600'
     },
     {
       icon: '🛡️',
       title: 'Trust & Transparency',
-      description: 'Complete honesty about costs, experiences, and logistics from start to finish.',
+      description: 'Complete honesty about costs, experiences, and logistics. No hidden fees, no surprises—just straightforward, reliable travel planning.',
+      gradient: 'from-emerald-500 to-green-600'
+    },
+    {
+      icon: '🚀',
+      title: 'Expert Curation',
+      description: 'Our team comprises seasoned travel professionals with deep local knowledge across 50+ destinations worldwide.',
+      gradient: 'from-indigo-500 to-blue-600'
+    },
+    {
+      icon: '❤️',
+      title: 'Guest-Centric Approach',
+      description: 'Your satisfaction is our priority. 24/7 support, flexible itineraries, and personalized adjustments to match your evolving preferences.',
+      gradient: 'from-rose-500 to-pink-600'
     },
   ];
 
   const milestones = [
-    { year: '2015', title: 'Founded', desc: 'Tripsy Holidays begins with a vision for personalized luxury travel' },
-    { year: '2018', title: '10,000+ Journeys', desc: 'Reach milestone of happy travelers across Asia' },
-    { year: '2021', title: 'Global Expansion', desc: 'Launch international packages to Europe and beyond' },
-    { year: '2025', title: 'Industry Leaders', desc: 'Recognized as one of Asia\'s most trusted travel curators' },
+    { year: '2015', title: 'Founded', desc: 'Tripsy Holidays begins with a vision for personalized luxury travel', icon: '🚀' },
+    { year: '2018', title: '10,000+ Journeys', desc: 'Reach milestone of happy travelers across Asia', icon: '🎯' },
+    { year: '2021', title: 'Global Expansion', desc: 'Launch international packages to Europe and beyond', icon: '🌍' },
+    { year: '2025', title: 'Industry Leaders', desc: 'Recognized as one of Asia\'s most trusted travel curators', icon: '⭐' },
+  ];
+
+  const stats = [
+    { number: '25K+', label: 'Journeys Crafted', icon: '✈️' },
+    { number: '50+', label: 'Destinations', icon: '🌎' },
+    { number: '98%', label: 'Repeat Travelers', icon: '🔄' },
+    { number: '4.9/5', label: 'Traveler Rating', icon: '⭐' },
   ];
 
   return (
-    <div className="bg-night">
-      <section className="relative min-h-[80vh] overflow-hidden pt-20 md:pt-32 pb-20">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute right-[-5%] top-20 h-[600px] w-[600px] rounded-full bg-ocean/15 blur-3xl animate-pulse" />
-          <div className="absolute left-[-15%] top-40 h-[500px] w-[500px] rounded-full bg-primary/10 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute right-[5%] bottom-0 h-[400px] w-[400px] rounded-full bg-ocean/10 blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        </div>
+    <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+      {/* Hero Section */}
+      <section className="relative min-h-screen overflow-hidden pt-28 pb-20">
+        <FloatingParticles />
+        
+        {/* Background Blobs */}
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 15, 0],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-gradient-to-br from-blue-200/30 to-cyan-200/20 blur-3xl pointer-events-none"
+        />
+        
+        <motion.div
+          animate={{
+            y: [0, 25, 0],
+            x: [0, -15, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -right-32 bottom-20 h-96 w-96 rounded-full bg-gradient-to-br from-emerald-200/30 to-green-200/20 blur-3xl pointer-events-none"
+        />
 
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            className="relative text-center space-y-10 max-w-5xl mx-auto"
+            className="relative text-center space-y-8 max-w-5xl mx-auto"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="space-y-2"
+              className="space-y-4"
             >
-              <p className="text-xs uppercase tracking-[0.4em] text-ocean/80 font-semibold">About Tripsy Holidays</p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-accent px-6 py-3 shadow-lg"
+              >
+                <span className="text-white text-lg">✨</span>
+                <span className="text-sm font-bold text-white tracking-widest">ABOUT TRIPSY HOLIDAYS</span>
+              </motion.div>
+              
               <motion.h1 
-                className="text-5xl md:text-7xl font-display font-bold text-white leading-tight"
+                className="text-5xl md:text-7xl font-display font-black leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
               >
-                We Create <span className="bg-gradient-to-r from-ocean via-primary to-ocean bg-clip-text text-transparent animate-pulse">Unforgettable Journeys</span>
+                <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                  We Create
+                </span>{' '}
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Unforgettable Journeys
+                </span>
               </motion.h1>
             </motion.div>
 
             <motion.p 
-              className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light"
+              className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
               At Tripsy Holidays, we believe travel is more than just visiting places—it's about transforming perspectives, 
               building meaningful connections, and creating memories that last a lifetime.
             </motion.p>
 
+            {/* Stats Grid */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, rotateX: 20 }}
-              animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-              className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden border border-ocean/30 bg-white/5 group perspective mt-12"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12"
             >
-              <img
-                src={imageAssets.about.hero}
-                alt="Travel Experience"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-night via-transparent to-transparent" />
-              <motion.div
-                className="absolute inset-0 border-2 border-ocean/0 group-hover:border-ocean/50 rounded-2xl transition-colors duration-300"
-              />
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="text-center p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-black/60 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="text-3xl mb-2">{stat.icon}</div>
+                  <p className="font-display text-3xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    {stat.number}
+                  </p>
+                  <p className="text-sm text-slate-600 font-semibold mt-2">{stat.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Hero Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.7, ease: 'easeOut' }}
+              className="relative mt-12"
+            >
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl blur-2xl" />
+              <div className="relative rounded-3xl overflow-hidden border-2 border-black/60 shadow-2xl group">
+                <img
+                  src={imageAssets.about.hero}
+                  alt="Travel Experience"
+                  className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
+              </div>
             </motion.div>
           </motion.div>
         </Container>
       </section>
 
-      <section className="relative py-24 border-t border-white/10 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute left-0 top-1/2 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
-        </div>
+      {/* Story Section */}
+      <section className="relative py-20 overflow-hidden">
+        <FloatingParticles count={8} />
+        
         <Container>
-          <div className="grid md:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -154,10 +272,29 @@ function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="space-y-3"
+                className="space-y-4"
               >
-                <p className="text-xs uppercase tracking-[0.4em] text-ocean/80 font-semibold">Our Story</p>
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-white">From Passion to <span className="text-ocean">Purpose</span></h2>
+                <motion.p 
+                  className="text-sm uppercase tracking-widest font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  Our Story
+                </motion.p>
+                <motion.h2 
+                  className="text-4xl md:text-5xl font-display font-black leading-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                    From Passion to
+                  </span>{' '}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Purpose
+                  </span>
+                </motion.h2>
               </motion.div>
 
               <div className="space-y-6">
@@ -170,9 +307,9 @@ function AboutPage() {
                     key={idx}
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                    transition={{ duration: 0.6, delay: 0.4 + idx * 0.1 }}
                     viewport={{ once: true }}
-                    className="text-lg text-white/70 leading-relaxed font-light"
+                    className="text-lg text-slate-600 leading-relaxed"
                   >
                     {text}
                   </motion.p>
@@ -182,74 +319,155 @@ function AboutPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
                 viewport={{ once: true }}
+                className="flex flex-col sm:flex-row gap-4"
               >
-                <Button 
-                  variant="glow" 
-                  size="lg" 
-                  className="w-fit uppercase tracking-[0.2em] mt-4"
-                  onClick={openBookingForm}
-                >
-                  Start Your Journey
-                </Button>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button 
+                    variant="primary"
+                    size="lg" 
+                    className="rounded-2xl px-8 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                    onClick={openBookingForm}
+                  >
+                    Start Your Journey
+                  </Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button 
+                    variant="outline"
+                    size="lg" 
+                    className="rounded-2xl px-8 border-2 border-primary/20 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                  >
+                    Our Packages
+                  </Button>
+                </motion.div>
               </motion.div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 40, rotateY: 10 }}
-              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              initial={{ opacity: 0, x: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.9 }}
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-ocean/20 to-primary/20 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-300" />
-              <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden border border-ocean/30 group-hover:border-ocean/60 transition-colors duration-300">
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-300" />
+              <div className="relative rounded-3xl overflow-hidden border-2 border-black/60 shadow-2xl group-hover:shadow-3xl transition-all duration-300">
                 <img
                   src={imageAssets.about.story}
                   alt="Team at Work"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-night/40 via-transparent to-transparent group-hover:from-night/20 transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
+                
+                {/* Floating Info Card */}
+                <motion.div
+                  animate={{ 
+                    y: [0, -10, 0],
+                    rotate: [0, -1, 1, 0]
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  className="absolute bottom-6 left-6 right-6"
+                >
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-black/60">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center">
+                        <span className="text-white text-lg">⭐</span>
+                      </div>
+                      <div>
+                        <p className="font-display text-lg font-black text-slate-900">15+ Years</p>
+                        <p className="text-sm text-slate-600">Of Travel Excellence</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
         </Container>
       </section>
 
-      <section className="relative py-24 border-t border-white/10 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-ocean/5 blur-3xl" />
-          <div className="absolute left-1/2 bottom-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
-        </div>
+      {/* Values Section */}
+      <section className="relative py-20 overflow-hidden">
         <Container>
-          <SectionHeading
-            eyeline="Our Values"
-            title="What Drives Us"
-            subtitle="Our core principles guide every decision we make and every journey we curate."
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <SectionHeading
+              eyeline="Our Values"
+              title={
+                <>
+                  <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                    What
+                  </span>{' '}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Drives Us
+                  </span>
+                </>
+              }
+              subtitle="Our core principles guide every decision we make and every journey we curate."
+              alignment="center"
+            />
+          </motion.div>
 
-          <div className="mt-16 grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.12 }}
-                viewport={{ once: true, margin: '-50px' }}
-                className="group relative rounded-2xl border border-ocean/20 hover:border-ocean/50 bg-gradient-to-br from-white/8 to-white/3 p-8 backdrop-blur-md hover:bg-gradient-to-br hover:from-white/12 hover:to-white/6 transition-all duration-300 hover:shadow-xl hover:shadow-ocean/10"
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  y: -8,
+                  scale: 1.02
+                }}
+                className="group relative rounded-3xl border border-black/50 bg-white/80 backdrop-blur-sm p-8 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-black/80"
               >
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-ocean/0 to-primary/0 group-hover:from-ocean/10 group-hover:to-primary/5 transition-all duration-300 pointer-events-none" />
-                <div className="relative space-y-4">
-                  <motion.div 
-                    className="text-6xl mb-4 inline-block p-3 rounded-xl bg-ocean/10 group-hover:bg-ocean/20 transition-colors"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                
+                {/* Icon */}
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center shadow-lg mb-6`}
+                >
+                  <span className="text-2xl text-white">{value.icon}</span>
+                </motion.div>
+
+                {/* Content */}
+                <div className="relative z-10 space-y-4">
+                  <motion.h3 
+                    className="font-display text-2xl font-black text-slate-900 group-hover:text-slate-800 transition-colors"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.2 }}
                   >
-                    {value.icon}
-                  </motion.div>
-                  <h3 className="font-display text-2xl text-white group-hover:text-ocean transition-colors">{value.title}</h3>
-                  <p className="text-white/70 leading-relaxed group-hover:text-white/80 transition-colors">{value.description}</p>
+                    {value.title}
+                  </motion.h3>
+                  <motion.p 
+                    className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.3 }}
+                  >
+                    {value.description}
+                  </motion.p>
+                </div>
+
+                {/* Hover Glow */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} rounded-3xl blur-xl opacity-10`} />
                 </div>
               </motion.div>
             ))}
@@ -257,151 +475,148 @@ function AboutPage() {
         </Container>
       </section>
 
-      {/* <section className="relative py-20 border-t border-white/10">
+      {/* Milestones Section */}
+      <section className="relative py-20 overflow-hidden">
         <Container>
-          <SectionHeading
-            eyeline="Our Team"
-            title="Meet the Visionaries"
-            subtitle="Passionate travel experts dedicated to creating your perfect journey."
-          />
-
-          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur group cursor-pointer"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-night via-transparent to-transparent" />
-                </div>
-                <div className="p-6 space-y-2">
-                  <h3 className="font-display text-xl text-white">{member.name}</h3>
-                  <p className="text-sm uppercase tracking-[0.2em] text-ocean">{member.role}</p>
-                  <p className="text-sm text-white/70 leading-relaxed">{member.bio}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </Container>
-      </section> */}
-
-      <section className="relative py-24 border-t border-white/10 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
-          <div className="absolute left-1/2 bottom-0 h-96 w-96 rounded-full bg-ocean/5 blur-3xl" />
-        </div>
-        <Container>
-          <div className="space-y-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
             <SectionHeading
               eyeline="Our Journey"
-              title="Milestones & Achievements"
-              subtitle="A decade of creating extraordinary travel experiences."
+              title={
+                <>
+                  <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                    Milestones &
+                  </span>{' '}
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Achievements
+                  </span>
+                </>
+              }
+              subtitle="A decade of creating extraordinary travel experiences and memorable journeys."
+              alignment="center"
             />
+          </motion.div>
 
-            <div className="relative">
-              <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-ocean via-ocean/40 to-transparent hidden md:block rounded-full" />
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary to-accent hidden lg:block rounded-full" />
 
-              <div className="space-y-12 md:space-y-20">
-                {milestones.map((milestone, index) => (
-                  <motion.div
-                    key={milestone.year}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, ease: 'easeOut' }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    className={`flex ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-0`}
+            <div className="space-y-12 lg:space-y-20">
+              {milestones.map((milestone, index) => (
+                <motion.div
+                  key={milestone.year}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.7, ease: 'easeOut' }}
+                  viewport={{ once: true }}
+                  className={`flex ${index % 2 === 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8 lg:gap-12`}
+                >
+                  <div className="hidden lg:flex lg:w-1/2" />
+                  
+                  {/* Timeline Dot */}
+                  <motion.div 
+                    className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent border-4 border-black shadow-2xl hidden lg:flex items-center justify-center z-10"
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
                   >
-                    <div className="hidden md:flex w-1/2" />
-                    
                     <motion.div 
-                      className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-ocean to-primary border-4 border-night/80 flex items-center justify-center hidden md:flex shadow-lg shadow-ocean/20 z-10"
-                      whileHover={{ scale: 1.15 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
+                      className="text-2xl text-white"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
                     >
-                      <motion.div 
-                        className="w-4 h-4 rounded-full bg-white"
-                        animate={{ scale: [1, 1.2, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      />
-                    </motion.div>
-
-                    <motion.div 
-                      className="w-full md:w-1/2 rounded-2xl border border-ocean/30 hover:border-ocean/60 bg-gradient-to-br from-white/10 to-white/5 p-8 md:p-10 backdrop-blur-md group hover:bg-gradient-to-br hover:from-white/15 hover:to-white/8 transition-all duration-300 hover:shadow-xl hover:shadow-ocean/20"
-                      whileHover={{ y: -5 }}
-                    >
-                      <div className="relative space-y-3">
-                        <motion.p 
-                          className="text-lg uppercase tracking-[0.3em] bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent font-display font-bold"
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          transition={{ delay: 0.2 }}
-                          viewport={{ once: true }}
-                        >
-                          {milestone.year}
-                        </motion.p>
-                        <h3 className="font-display text-2xl md:text-3xl text-white group-hover:text-ocean transition-colors">{milestone.title}</h3>
-                        <p className="text-white/70 leading-relaxed group-hover:text-white/90 transition-colors">{milestone.desc}</p>
-                      </div>
+                      {milestone.icon}
                     </motion.div>
                   </motion.div>
-                ))}
-              </div>
+
+                  {/* Milestone Card */}
+                  <motion.div 
+                    className="w-full lg:w-1/2 rounded-3xl border border-black/50 bg-white/80 backdrop-blur-sm p-8 transition-all duration-500 hover:shadow-2xl hover:border-black/80 group"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="relative space-y-4">
+                      <motion.p 
+                        className="text-lg uppercase tracking-widest font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true }}
+                      >
+                        {milestone.year}
+                      </motion.p>
+                      <motion.h3 
+                        className="font-display text-2xl lg:text-3xl font-black text-slate-900 group-hover:text-slate-800 transition-colors"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        {milestone.title}
+                      </motion.h3>
+                      <motion.p 
+                        className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                      >
+                        {milestone.desc}
+                      </motion.p>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="relative py-24 border-t border-white/10 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-ocean/5 via-transparent to-primary/5 blur-3xl" />
-          <div className="absolute top-1/2 left-1/4 h-96 w-96 rounded-full bg-ocean/10 blur-3xl" />
-          <div className="absolute top-1/2 right-1/4 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-        </div>
+      {/* CTA Section */}
+      <section className="relative py-20 overflow-hidden">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="group relative rounded-3xl border border-ocean/40 hover:border-ocean/70 bg-gradient-to-br from-white/12 via-white/5 to-primary/10 p-12 md:p-20 text-center space-y-8 backdrop-blur-xl hover:bg-gradient-to-br hover:from-white/16 hover:via-white/8 hover:to-primary/15 transition-all duration-300 hover:shadow-2xl hover:shadow-ocean/20 overflow-hidden"
+            className="relative rounded-3xl border border-black/50 bg-white/80 backdrop-blur-sm p-12 md:p-16 text-center space-y-8 overflow-hidden group"
           >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-ocean/10 to-transparent rounded-full -top-48 -left-48" />
-              <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-primary/10 to-transparent rounded-full -bottom-48 -right-48" />
+            {/* Background Elements */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary/10 to-transparent rounded-full -top-48 -left-48" />
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-accent/10 to-transparent rounded-full -bottom-48 -right-48" />
             </div>
 
-            <div className="relative space-y-4">
+            <div className="relative space-y-6">
               <motion.p
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-xs uppercase tracking-[0.4em] text-ocean/80 font-semibold"
+                className="text-sm uppercase tracking-widest font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
               >
                 Your Next Adventure
               </motion.p>
               <motion.h2 
-                className="font-display text-3xl md:text-5xl xl:text-6xl text-white font-bold leading-tight"
+                className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                Ready to Transform Your <span className="bg-gradient-to-r from-ocean via-primary to-ocean bg-clip-text text-transparent">Travel Journey?</span>
+                <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                  Ready to Transform
+                </span>{' '}
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Your Travel Journey?
+                </span>
               </motion.h2>
             </div>
 
             <motion.p 
-              className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -417,22 +632,33 @@ function AboutPage() {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
             >
-              <Button 
-                variant="glow" 
-                size="lg" 
-                className="uppercase tracking-[0.2em] px-10"
-                onClick={openBookingForm}
-              >
-                Book Your Consultation
-              </Button>
-              <Button 
-                variant="secondary" 
-                size="lg" 
-                className="uppercase tracking-[0.2em] px-10"
-                onClick={openBookingForm}
-              >
-                Get In Touch
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button 
+                  variant="primary"
+                  size="xl"
+                  className="rounded-2xl px-12 py-6 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-2xl hover:shadow-3xl transition-all duration-300 uppercase tracking-widest font-bold text-lg"
+                  onClick={openBookingForm}
+                >
+                  <span className="flex items-center gap-4">
+                    Book Your Consultation
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </span>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button 
+                  variant="outline"
+                  size="xl"
+                  className="rounded-2xl px-12 py-6 border-2 border-primary/20 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 uppercase tracking-widest font-bold text-lg"
+                >
+                  Explore Packages
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
         </Container>

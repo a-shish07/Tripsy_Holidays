@@ -6,195 +6,462 @@ import Button from '../components/Button';
 import Policies from '../components/Policies';
 import { BookingContext } from '../App';
 import { uttarakhandPackages } from '../data/uttarakhandPackages';
-import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaCheckCircle, FaArrowLeft, FaChevronRight, FaStar } from 'react-icons/fa';
+import { 
+  FaMapMarkerAlt, 
+  FaCalendarAlt, 
+  FaClock, 
+  FaCheckCircle, 
+  FaArrowLeft, 
+  FaChevronRight, 
+  FaStar,
+  FaMountain,
+  FaWater,
+  FaHotel,
+  FaCar,
+  FaUtensils,
+  FaHiking,
+  FaTree
+} from 'react-icons/fa';
 
 function UttarakhandPackageDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { openBookingForm } = useContext(BookingContext);
   const [expandedDay, setExpandedDay] = useState(null);
-  
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const package_ = uttarakhandPackages.find(p => p.id === parseInt(id));
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.3,
+        duration: 0.8
+      }
+    }
+  };
+
+  const floatingAnimation = {
+    animate: {
+      y: [0, -15, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const pulseAnimation = {
+    animate: {
+      scale: [1, 1.05, 1],
+      opacity: [0.3, 0.6, 0.3],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
 
   if (!package_) {
     return (
-      <div className="bg-night min-h-screen flex items-center justify-center">
+      <div className="bg-gradient-to-br from-night via-emerald-900/20 to-green-400/30 min-h-screen flex items-center justify-center">
         <Container>
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl font-display font-bold text-white">Package Not Found</h1>
-            <p className="text-white/70 text-lg">The package you're looking for doesn't exist.</p>
-            <Button variant="glow" onClick={() => navigate('/packages/uttarakhand')}>
-              Back to Packages
-            </Button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center space-y-8"
+          >
+            <motion.div
+              animate={{ 
+                rotate: [0, 10, -10, 0],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="text-8xl"
+            >
+              🌄
+            </motion.div>
+            <div className="space-y-4">
+              <h1 className="text-4xl font-display font-bold text-white">Package Not Found</h1>
+              <p className="text-white/70 text-lg max-w-md mx-auto">
+                The Uttarakhand adventure you're seeking is currently exploring the Himalayas.
+              </p>
+            </div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button variant="glow" onClick={() => navigate('/packages/uttarakhand')}>
+                Discover Devbhoomi
+              </Button>
+            </motion.div>
+          </motion.div>
         </Container>
       </div>
     );
   }
 
   return (
-    <div className="bg-night">
-      <section className="relative min-h-auto overflow-hidden pt-12 md:pt-16 pb-10" style={{ backgroundImage: `url(${package_.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="absolute inset-0 bg-black/40 -z-10" />
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute right-[-10%] top-20 h-[350px] w-[350px] rounded-full bg-ocean/10 blur-3xl animate-pulse" />
-          <div className="absolute left-[-15%] top-40 h-[300px] w-[300px] rounded-full bg-primary/8 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+    <div className="bg-gradient-to-br from-blue-950 via-blue-950 to-blue-900">
+      {/* Enhanced Hero Section with Uttarakhand Theme */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Enhanced Overlay */}
+        <div className="absolute inset-0">
+          <motion.img
+            src={package_.image}
+            alt={package_.shortTitle}
+            className="w-full h-full object-cover"
+            initial={{ scale: 1.2 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            onLoad={() => setImageLoaded(true)}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-night/80 via-night/40 to-night/90" />
+          
+          {/* Animated Background Elements */}
+          <motion.div
+            variants={pulseAnimation}
+            animate="animate"
+            className="absolute right-[-10%] top-20 h-[400px] w-[400px] rounded-full bg-green-400/20 blur-3xl"
+          />
+          <motion.div
+            variants={pulseAnimation}
+            animate="animate"
+            transition={{ delay: 2 }}
+            className="absolute left-[-15%] top-40 h-[350px] w-[350px] rounded-full bg-emerald-500/15 blur-3xl"
+          />
+          
+          {/* Forest Effect */}
+          <div className="absolute inset-0">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  y: [0, -10, 0],
+                  opacity: [0.3, 0.7, 0.3],
+                }}
+                transition={{
+                  duration: 4 + Math.random() * 3,
+                  repeat: Infinity,
+                  delay: Math.random() * 4,
+                  ease: "easeInOut"
+                }}
+                className="absolute text-2xl opacity-40"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+              >
+                🌲
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Mountain Silhouette Effect */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-night to-transparent" />
         </div>
 
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-4"
-          >
-            <motion.button
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              onClick={() => navigate('/packages/uttarakhand')}
-              className="flex items-center gap-2 text-ocean/90 hover:text-ocean transition-colors text-base font-semibold uppercase tracking-[0.2em]"
+        {/* Loading Overlay */}
+        <AnimatePresence>
+          {!imageLoaded && (
+            <motion.div
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-night flex items-center justify-center z-20"
             >
-              <FaArrowLeft className="w-3 h-3" />
-              Back
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="w-16 h-16 border-4 border-green-400/30 border-t-green-400 rounded-full"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <Container className="relative z-10">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-8 text-center"
+          >
+            {/* Back Button */}
+            <motion.button
+              variants={itemVariants}
+              onClick={() => navigate('/packages/uttarakhand')}
+              className="group flex items-center gap-3 text-green-400/90 hover:text-green-400 transition-all duration-300 text-base font-semibold uppercase tracking-[0.2em] bg-white/10 hover:bg-white/20 backdrop-blur-lg px-6 py-3 rounded-2xl border border-black/20 hover:border-green-400/50"
+              whileHover={{ x: -5 }}
+            >
+              <motion.div
+                animate={{ x: [0, -3, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <FaArrowLeft className="w-4 h-4" />
+              </motion.div>
+              Back to Devbhoomi
             </motion.button>
 
+            {/* Package Info */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="space-y-1.5"
+              variants={itemVariants}
+              className="space-y-6"
             >
-              <p className="text-base uppercase tracking-[0.3em] bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent font-bold">Package {package_.id} of 6</p>
-              <h1 className="text-3xl md:text-4xl font-display font-bold text-white leading-snug">
-                {package_.shortTitle}
-              </h1>
-              <p className="text-base text-white/70 font-light">{package_.title}</p>
+              <motion.p
+                variants={floatingAnimation}
+                animate="animate"
+                className="text-base uppercase tracking-[0.3em] bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent font-bold inline-flex items-center gap-2 bg-white/10 backdrop-blur-lg px-6 py-2 rounded-full border border-green-400/30"
+              >
+                <FaTree className="w-4 h-4" />
+                Package {package_.id} of {uttarakhandPackages.length}
+              </motion.p>
+              
+              <motion.h1
+                variants={itemVariants}
+                className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight"
+              >
+                {package_.shortTitle.split('').map((letter, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.03 }}
+                    className="inline-block"
+                  >
+                    {letter === ' ' ? '\u00A0' : letter}
+                  </motion.span>
+                ))}
+              </motion.h1>
+              
+              <motion.p
+                variants={itemVariants}
+                className="text-xl text-white/80 font-light max-w-2xl mx-auto leading-relaxed"
+              >
+                {package_.title}
+              </motion.p>
+            </motion.div>
+
+            {/* Quick Stats */}
+            <motion.div
+              variants={containerVariants}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto"
+            >
+              {[
+                { 
+                  icon: FaCalendarAlt, 
+                  label: 'Duration', 
+                  value: package_.duration,
+                  color: 'from-green-400 to-emerald-400'
+                },
+                { 
+                  icon: FaMapMarkerAlt, 
+                  label: 'Pickup Point', 
+                  value: package_.pickup,
+                  color: 'from-emerald-400 to-teal-400'
+                },
+                { 
+                  icon: FaHiking, 
+                  label: 'Best For', 
+                  value: package_.bestFor,
+                  color: 'from-teal-400 to-cyan-400'
+                }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className={`rounded-2xl border border-black/20 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg p-6 text-center group hover:shadow-2xl transition-all duration-500 ${item.color} hover:shadow-${item.color.split('to-')[1]}/20`}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} mb-3`}
+                  >
+                    <item.icon className="text-white w-5 h-5" />
+                  </motion.div>
+                  <p className="text-sm uppercase tracking-[0.2em] text-black font-semibold mb-1">
+                    {item.label}
+                  </p>
+                  <p className="text-white font-bold text-lg">{item.value}</p>
+                </motion.div>
+              ))}
             </motion.div>
           </motion.div>
         </Container>
       </section>
 
-      <section className="relative py-8 border-t border-white/10">
+      {/* Enhanced Highlights & Activities Section */}
+      <section className="relative py-10 border-t border-black/10">
         <Container>
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ staggerChildren: 0.08, delayChildren: 0.2 }}
-            className="grid md:grid-cols-3 gap-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-2 gap-12"
           >
-            {[
-              { icon: FaCalendarAlt, label: 'Duration', value: package_.duration },
-              { icon: FaMapMarkerAlt, label: 'Pickup Point', value: package_.pickup },
-              { icon: FaClock, label: 'Best For', value: package_.bestFor }
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.08 }}
-                className="rounded-lg border border-ocean/20 hover:border-ocean/40 bg-gradient-to-br from-white/5 to-white/2 hover:from-white/8 hover:to-white/4 p-4 transition-all"
+            {/* Highlights */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <motion.h3
+                variants={itemVariants}
+                className="text-3xl font-display font-bold text-black flex items-center gap-3"
               >
-                <div className="flex items-center gap-2 mb-2">
-                  <item.icon className="text-ocean w-4 h-4" />
-                  <span className="text-base uppercase tracking-[0.15em] text-ocean/80 font-semibold">{item.label}</span>
-                </div>
-                <p className="text-white font-semibold text-base">{item.value}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </section>
-
-      <section className="relative py-8 border-t border-white/10">
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="grid md:grid-cols-2 gap-6"
-          >
-            <div>
-              <h3 className="text-lg font-display font-bold text-white mb-4 flex items-center gap-2">
-                <FaStar className="text-ocean w-5 h-5" />
-                Highlights
-              </h3>
-              <ul className="space-y-2">
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <FaStar className="text-green-400 w-8 h-8" />
+                </motion.div>
+                Spiritual Highlights
+              </motion.h3>
+              <div className="grid gap-4">
                 {package_.highlights.map((highlight, idx) => (
-                  <motion.li
+                  <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.04 }}
-                    className="flex gap-2 text-white/80 text-base"
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.02, x: 10 }}
+                    className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/5 to-white/2 hover:from-white/8 hover:to-white/4 border border-black/10 hover:border-green-400/30 transition-all duration-300 group"
                   >
-                    <FaStar className="text-ocean w-3 h-3 flex-shrink-0 mt-0.5" />
-                    <span>{highlight}</span>
-                  </motion.li>
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: 180 }}
+                      transition={{ duration: 0.5 }}
+                      className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center mt-0.5"
+                    >
+                      <FaStar className="text-white w-3 h-3" />
+                    </motion.div>
+                    <span className="text-white/90 text-lg leading-relaxed font-light group-hover:text-white transition-colors">
+                      {highlight}
+                    </span>
+                  </motion.div>
                 ))}
-              </ul>
-            </div>
+              </div>
+            </motion.div>
 
-            <div>
-              <h3 className="text-lg font-display font-bold text-white mb-4 flex items-center gap-2">
-                <FaClock className="text-ocean w-5 h-5" />
-                Activities
-              </h3>
-              <ul className="space-y-2">
+            {/* Activities */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <motion.h3
+                variants={itemVariants}
+                className="text-3xl font-display font-bold text-black flex items-center gap-3"
+              >
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, 0]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <FaHiking className="text-emerald-400 w-8 h-8" />
+                </motion.div>
+                Himalayan Activities
+              </motion.h3>
+              <div className="grid gap-4">
                 {package_.activities.map((activity, idx) => (
-                  <motion.li
+                  <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.04 }}
-                    className="flex gap-2 text-white/80 text-base"
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.02, x: 10 }}
+                    className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/5 to-white/2 hover:from-white/8 hover:to-white/4 border border-black/10 hover:border-emerald-400/30 transition-all duration-300 group"
                   >
-                    <FaCheckCircle className="text-primary w-3 h-3 flex-shrink-0 mt-0.5" />
-                    <span>{activity}</span>
-                  </motion.li>
+                    <motion.div
+                      whileHover={{ scale: 1.3 }}
+                      transition={{ type: "spring", bounce: 0.6 }}
+                      className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 flex items-center justify-center mt-0.5"
+                    >
+                      <FaCheckCircle className="text-white w-3 h-3" />
+                    </motion.div>
+                    <span className="text-white/90 text-lg leading-relaxed font-light group-hover:text-white transition-colors">
+                      {activity}
+                    </span>
+                  </motion.div>
                 ))}
-              </ul>
-            </div>
+              </div>
+            </motion.div>
           </motion.div>
         </Container>
       </section>
 
-      <section className="relative py-8 border-t border-white/10">
+      {/* Enhanced Itinerary Section */}
+      <section className="relative py-20 border-t border-black/10 bg-gradient-to-br from-white/5 to-transparent">
         <Container>
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="space-y-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-12"
           >
-            <h3 className="text-xl font-display font-bold text-white">Itinerary</h3>
-            <div className="space-y-4">
+            <motion.h3
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl font-display font-bold text-white text-center"
+            >
+              Your <span className="text-transparent bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text">Devbhoomi</span> Journey
+            </motion.h3>
+            
+            <div className="space-y-6 max-w-4xl mx-auto">
               {package_.itinerary.map((day, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, x: -15 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.07 }}
-                  className="rounded-lg border border-ocean/20 hover:border-ocean/40 bg-white/4 hover:bg-white/6 transition-all cursor-pointer overflow-hidden"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="rounded-2xl border border-black/20 bg-gradient-to-br from-white/8 to-white/3 backdrop-blur-lg overflow-hidden group hover:shadow-2xl hover:shadow-green-400/20 transition-all duration-500"
                 >
-                  <button
+                  <motion.button
                     onClick={() => setExpandedDay(expandedDay === idx ? null : idx)}
-                    className="w-full flex items-center justify-between p-4 hover:bg-ocean/4 transition-colors"
+                    className="w-full flex items-center justify-between p-8 hover:bg-white/5 transition-all duration-300 group"
+                    whileHover={{ scale: 1.02 }}
                   >
-                    <div className="flex items-center gap-3 flex-1 text-left">
-                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-ocean/20 text-ocean font-bold text-base">
+                    <div className="flex items-center gap-6 flex-1 text-left">
+                      <motion.span
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-green-400 to-emerald-500 text-white font-bold text-xl shadow-lg shadow-green-400/30"
+                      >
                         {day.day}
-                      </span>
-                      <div>
-                        <p className="text-white font-semibold text-base">{day.title}</p>
+                      </motion.span>
+                      <div className="space-y-2">
+                        <p className="text-white font-bold text-xl">{day.title}</p>
+                        <p className="text-white/60 text-sm font-light">Click to explore day details</p>
                       </div>
                     </div>
                     <motion.div
-                      animate={{ rotate: expandedDay === idx ? 180 : 0 }}
+                      animate={{ rotate: expandedDay === idx ? 90 : 0 }}
                       transition={{ duration: 0.3 }}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 group-hover:bg-green-400/20 transition-colors"
                     >
-                      <FaChevronRight className="text-ocean w-4 h-4" />
+                      <FaChevronRight className="text-green-400 w-4 h-4" />
                     </motion.div>
-                  </button>
+                  </motion.button>
 
                   <AnimatePresence>
                     {expandedDay === idx && (
@@ -202,22 +469,30 @@ function UttarakhandPackageDetailPage() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="border-t border-ocean/15 bg-gradient-to-b from-ocean/3 to-transparent"
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className="border-t border-black/10 bg-gradient-to-b from-green-400/5 to-transparent"
                       >
-                        <ul className="p-4 space-y-2">
+                        <div className="p-8 space-y-4">
                           {day.details.map((detail, detailIdx) => (
-                            <motion.li
+                            <motion.div
                               key={detailIdx}
-                              initial={{ opacity: 0, x: -8 }}
+                              initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: detailIdx * 0.04 }}
-                              className="flex gap-2 text-white/70 text-base"
+                              transition={{ duration: 0.4, delay: detailIdx * 0.05 }}
+                              className="flex items-start gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
                             >
-                              <span className="text-ocean flex-shrink-0 mt-1">•</span>
-                              <span>{detail}</span>
-                            </motion.li>
+                              <motion.span
+                                whileHover={{ scale: 1.2 }}
+                                className="text-green-400 text-xl flex-shrink-0 mt-0.5"
+                              >
+                                •
+                              </motion.span>
+                              <span className="text-white/80 text-lg leading-relaxed font-light group-hover:text-white transition-colors">
+                                {detail}
+                              </span>
+                            </motion.div>
                           ))}
-                        </ul>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -228,110 +503,223 @@ function UttarakhandPackageDetailPage() {
         </Container>
       </section>
 
-      <section className="relative py-8 border-t border-white/10">
+      {/* Enhanced Destinations Section */}
+      <section className="relative py-20 border-t border-black/10">
         <Container>
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="space-y-3"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-12"
           >
-            <h3 className="text-lg font-display font-bold text-white">Destinations</h3>
-            <div className="flex flex-wrap gap-2">
+            <motion.h3
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl font-display font-bold text-white text-center"
+            >
+              Explore <span className="text-transparent bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text">Sacred</span> Lands
+            </motion.h3>
+            
+            <div className="flex flex-wrap gap-4 justify-center">
               {package_.destinations.map((dest, idx) => (
-                <motion.span
+                <motion.div
                   key={idx}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: idx * 0.04 }}
-                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-ocean/15 to-primary/15 text-white border border-ocean/25 font-medium text-base flex items-center gap-1.5"
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="px-8 py-4 rounded-2xl bg-gradient-to-r from-green-400/20 to-emerald-500/20 text-white border border-green-400/30 hover:border-green-400/50 font-semibold text-lg flex items-center gap-3 backdrop-blur-lg hover:shadow-2xl hover:shadow-green-400/30 transition-all duration-300 group"
                 >
-                  <FaMapMarkerAlt className="w-3 h-3 text-ocean" />
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <FaMapMarkerAlt className="w-5 h-5 text-green-400" />
+                  </motion.div>
                   {dest}
-                </motion.span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
         </Container>
       </section>
 
-      <section className="relative py-8 border-t border-white/10">
+      {/* Enhanced Inclusions & Exclusions */}
+      <section className="relative py-20 border-t border-black/10 bg-gradient-to-br from-white/5 to-transparent">
         <Container>
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-            className="grid md:grid-cols-2 gap-6"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-2 gap-12"
           >
-            <div>
-              <h3 className="text-lg font-display font-bold text-white mb-3 flex items-center gap-2">
-                <FaCheckCircle className="text-ocean w-4 h-4" />
-                Included
-              </h3>
-              <ul className="space-y-1.5">
+            {/* Inclusions */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <motion.h3
+                variants={itemVariants}
+                className="text-3xl font-display font-bold text-white flex items-center gap-3"
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center"
+                >
+                  <FaCheckCircle className="text-white w-5 h-5" />
+                </motion.div>
+                What's Included
+              </motion.h3>
+              <div className="space-y-3">
                 {package_.inclusions.map((item, idx) => (
-                  <motion.li
+                  <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.04 }}
-                    className="flex gap-2 text-white/80 text-base"
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.02, x: 10 }}
+                    className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-white/5 to-white/2 hover:from-white/8 hover:to-white/4 border border-black/10 hover:border-green-400/30 transition-all duration-300 group"
                   >
-                    <FaCheckCircle className="text-ocean w-3 h-3 flex-shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </motion.li>
+                    <FaCheckCircle className="text-green-400 w-5 h-5 flex-shrink-0" />
+                    <span className="text-white/90 text-lg font-light group-hover:text-white transition-colors">
+                      {item}
+                    </span>
+                  </motion.div>
                 ))}
-              </ul>
-            </div>
+              </div>
+            </motion.div>
 
-            <div>
-              <h3 className="text-lg font-display font-bold text-white mb-3 flex items-center gap-2">
-                <span className="text-primary text-lg">✕</span>
-                Not Included
-              </h3>
-              <ul className="space-y-1.5">
+            {/* Exclusions */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <motion.h3
+                variants={itemVariants}
+                className="text-3xl font-display font-bold text-white flex items-center gap-3"
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="w-10 h-10 rounded-full bg-gradient-to-r from-red-400 to-pink-500 flex items-center justify-center"
+                >
+                  <span className="text-white text-lg font-bold">✕</span>
+                </motion.div>
+                What's Not Included
+              </motion.h3>
+              <div className="space-y-3">
                 {package_.exclusions.map((item, idx) => (
-                  <motion.li
+                  <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.04 }}
-                    className="flex gap-2 text-white/80 text-base"
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.02, x: 10 }}
+                    className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-white/5 to-white/2 hover:from-white/8 hover:to-white/4 border border-black/10 hover:border-red-400/30 transition-all duration-300 group"
                   >
-                    <span className="text-primary/70 flex-shrink-0 mt-0.5 text-base">−</span>
-                    <span>{item}</span>
-                  </motion.li>
+                    <span className="text-red-400 text-lg flex-shrink-0">−</span>
+                    <span className="text-white/90 text-lg font-light group-hover:text-white transition-colors">
+                      {item}
+                    </span>
+                  </motion.div>
                 ))}
-              </ul>
-            </div>
+              </div>
+            </motion.div>
           </motion.div>
         </Container>
       </section>
 
       <Policies />
 
-      <section className="relative py-10 border-t border-white/10">
+      {/* Enhanced CTA Section */}
+      <section className="relative py-20 border-t border-black/10">
         <Container>
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6 }}
-            className="text-center space-y-3"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
           >
-            <h3 className="text-2xl md:text-3xl font-display font-bold text-white">
-              <span className="bg-gradient-to-r from-ocean to-primary bg-clip-text text-transparent">Book Your Adventure</span>
-            </h3>
-            <p className="text-base text-white/70 max-w-xl mx-auto leading-relaxed font-light">
-              Secure your spot on this {package_.shortTitle} journey today.
-            </p>
-            <div className="flex flex-col md:flex-row gap-3 justify-center pt-2">
-              <Button variant="glow" size="base" className="uppercase tracking-[0.15em] px-8 text-base" onClick={openBookingForm}>
-                Reserve Now
-              </Button>
-              <Button variant="secondary" size="base" className="uppercase tracking-[0.15em] px-8 text-base" onClick={() => navigate('/packages/uttarakhand')}>
-                View All
-              </Button>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <h3 className="text-4xl md:text-5xl font-display font-bold text-white">
+                Ready for Your{' '}
+                <span className="text-transparent bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text">
+                  Spiritual Journey?
+                </span>
+              </h3>
+              <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-light">
+                Embark on a transformative journey through the sacred lands of Devbhoomi Uttarakhand, where spirituality meets natural beauty.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button 
+                  variant="glow" 
+                  size="lg" 
+                  className="uppercase tracking-[0.2em] px-12 py-4 text-lg font-bold rounded-2xl bg-gradient-to-r from-green-400 to-emerald-500"
+                  onClick={openBookingForm}
+                >
+                  Book Sacred Journey
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button 
+                  variant="secondary" 
+                  size="lg" 
+                  className="uppercase tracking-[0.2em] px-12 py-4 text-lg font-bold rounded-2xl border-black/30 hover:border-green-400/50"
+                  onClick={() => navigate('/packages/uttarakhand')}
+                >
+                  More Uttarakhand Tours
+                </Button>
+              </motion.div>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="flex flex-wrap justify-center items-center gap-8 pt-8 text-white/60 text-sm"
+            >
+              <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
+                <span className="text-green-400">✓</span> Best Price Guarantee
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
+                <span className="text-green-400">✓</span> 24/7 Support
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
+                <span className="text-green-400">✓</span> Free Cancellation
+              </motion.div>
+            </motion.div>
           </motion.div>
         </Container>
       </section>

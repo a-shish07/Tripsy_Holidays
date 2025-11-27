@@ -2,15 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: dark;
-  background-color: theme('colors.night');
-}
 
-body {
-  @apply bg-gradient-to-b from-night via-[#18294a] to-sand text-slate-100 font-body antialiased;
-}
 
-a {
-  @apply font-medium text-ocean hover:text-primary transition-colors;
+@layer base {
+  :root {
+    color-scheme: light;
+    background-color: #d9ffff;
+  }
+
+  body {
+    min-height: 100vh;
+    color: #0f172a;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.1), transparent 55%),
+      radial-gradient(circle at 80% 0%, rgba(255, 138, 92, 0.08), transparent 45%),
+      linear-gradient(180deg, #d9ffff 0%, #eef9ff 45%, #ffffff 75%, #fef5ed 100%);
+  }
+
+  a {
+    @apply font-medium text-primary hover:text-accent transition-colors;
+  }
 }

@@ -10,7 +10,7 @@ function NewsletterSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true, amount: 0.3 }}
-        className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-gradient-to-br from-white/15 to-white/5 px-8 py-16 text-center shadow-lg backdrop-blur md:px-20 overflow-hidden"
+        className="mx-auto max-w-4xl rounded-3xl border border-black/10 bg-gradient-to-br from-white/15 to-white/5 px-8 py-16 text-center shadow-lg backdrop-blur md:px-20 overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-ocean/5 to-primary/5 opacity-50" />
         
@@ -44,7 +44,7 @@ function NewsletterSection() {
             <input
               type="email"
               placeholder="Enter your email address"
-              className="flex-1 rounded-l-2xl sm:rounded-l-2xl sm:rounded-r-none border border-white/20 border-r-0 sm:border-r-0 bg-white/10 px-6 py-4 text-base text-white placeholder:text-white/40 outline-none transition focus:border-ocean focus:ring-2 focus:ring-ocean/40 backdrop-blur"
+              className="flex-1 rounded-l-2xl sm:rounded-l-2xl sm:rounded-r-none border border-black/20 border-r-0 sm:border-r-0 bg-white/10 px-6 py-4 text-base text-white placeholder:text-white/40 outline-none transition focus:border-ocean focus:ring-2 focus:ring-ocean/40 backdrop-blur"
               required
             />
             <Button
@@ -70,7 +70,7 @@ function NewsletterSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="grid grid-cols-3 gap-4 pt-8 border-t border-white/10"
+            className="grid grid-cols-3 gap-4 pt-8 border-t border-black/10"
           >
             {[
               { icon: '📬', value: '50k+', label: 'Subscribers' },

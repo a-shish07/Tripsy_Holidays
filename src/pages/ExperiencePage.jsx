@@ -21,15 +21,15 @@ function ExperiencePage() {
         </div>
       </Container>
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
       
       <ExperienceSection />
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
       
       <WhyChooseUsSection />
 
-      <div className="border-t border-white/10" />
+      <div className="border-t border-black/10" />
       
       <Container>
         <div className="space-y-12">

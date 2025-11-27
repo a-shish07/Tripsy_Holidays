@@ -6,6 +6,7 @@ export const himachalPackages = [
     duration: '4 Nights / 5 Days',
     pickup: 'Delhi/Chandigarh',
     destinations: ['Manali', 'Solang Valley', 'Atal Tunnel', 'Naggar'],
+    image: '/assests/Breathtaking%20Nature%20Landscape%20Image%20Ideas.jpg',
     highlights: ['Comfortable Delhi to Manali overnight Volvo journey', 'Hadimba Devi Temple & Clubhouse', 'Solang Valley adventure with Atal Tunnel & Sissu visit', 'White water rafting & heritage walk at Naggar Castle', 'Roerich Art Gallery & Trout Fish Farm dining'],
     itinerary: [
       {
@@ -90,6 +91,7 @@ export const himachalPackages = [
     duration: '5 Nights / 6 Days',
     pickup: 'Delhi/Chandigarh',
     destinations: ['Shimla', 'Kufri', 'Manali', 'Solang Valley'],
+    image: '/assests/Breathtaking%20Nature%20Scenery%20Landscape%20Image.jpg',
     highlights: ['Explore Shimla\'s colonial charm, Mall Road, Ridge, and Christ Church beauty', 'Enjoy Kufri adventures with snow sports, fun park, and Himalayan zoo visit', 'Discover Manali\'s Hadimba Temple, Vashisht Hot Springs, and Mall Road vibes', 'Experience Solang Valley thrills with paragliding, zorbing, and ATV rides', 'Visit Kullu, Manikaran Gurudwara, and scenic Naggar Castle for rich heritage'],
     itinerary: [
       {
@@ -187,6 +189,7 @@ export const himachalPackages = [
     duration: '5 Nights / 6 Days',
     pickup: 'Delhi/Chandigarh',
     destinations: ['Manali', 'Chandertal Lake', 'Kaza', 'Spiti Valley'],
+    image: '/assests/Maligne%20Lake%20Spirit%20Island,%20Canada.jpg',
     highlights: ['Scenic Manali arrival with mountain views and local sightseeing', 'Adventure to Chandertal Lake via Rohtang Pass with camping stay', 'Explore Kaza\'s Ki Monastery, Kibber village & stunning Spiti Valley', 'Journey through Kunzum Pass and Losar Village in high Himalayas', 'Return via Rohtang Pass with stops at Marhi, Gulaba, and Nehru Kund'],
     itinerary: [
       {
@@ -281,6 +284,7 @@ export const himachalPackages = [
     duration: '8 Nights / 9 Days',
     pickup: 'Delhi/Chandigarh',
     destinations: ['Manali', 'Dharamshala', 'Dalhousie', 'Khajjiar'],
+    image: '/assests/A%20serene%20beach%20scene%20with%20turquoise%20waters,%20lush%20greenery,%20and%20majestic%20cliffs%20in%20the%20video.jpg',
     highlights: ['Scenic Delhi to Manali drive with Himachal\'s stunning landscapes', 'Visit Hadimba Temple, Tibetan Monastery & Mall Road in Manali', 'Adventure at Solang Valley, Atal Tunnel & optional Rohtang Pass', 'Explore Dharamshala with McLeodganj, Bhagsu Nag & Dalai Lama Temple', 'Discover Khajjiar\'s Mini Switzerland charm & Dalhousie churches'],
     itinerary: [
       {
@@ -409,6 +413,7 @@ export const himachalPackages = [
     duration: '6 Nights / 7 Days',
     pickup: 'Chandigarh',
     destinations: ['Narkanda', 'Sarahan', 'Kalpa', 'Sangla', 'Chitkul', 'Shimla'],
+    image: '/assests/Tropical%20Beach%20House%20With%20Palm%20Trees%20And%20Crystal%20Clear%20Water%20Photo%20And%20Picture%20For%20Free%20Download%20-%20Pngtree.jpg',
     highlights: ['Scenic drive from Chandigarh to Narkanda via lush Himachal valleys', 'Visit ancient Bhimakali Temple & explore Padam Palace at Sarahan', 'Discover Kalpa village with stunning Kinner Kailash mountain views', 'Explore Sangla Valley, Kamru Fort & Chitkul – last village of India', 'Experience Shimla sightseeing with Himalayan landscapes & markets'],
     itinerary: [
       {
@@ -520,6 +525,7 @@ export const himachalPackages = [
     duration: '8 Nights / 9 Days',
     pickup: 'Delhi/Chandigarh',
     destinations: ['Shimla', 'Kufri', 'Manali', 'Dharamshala', 'Dalhousie', 'Khajjiar'],
+    image: '/assests/View%20Of%20Rice%20Field%20In%20Rural%20Area%20Of%20Thailand%20Outdoor%20Nature%20Of%20Mountain%20Cottage,%20Rice,%20Green,%20Field%20Background%20Image%20And%20Wallpaper%20for%20Free%20Download.jpg',
     highlights: [
       'Explore Shimla & Kufri with Mall Road, Christ Church & Ridge',
       'Kullu river rafting, Pandoh Dam & scenic drive to Manali hills',
@@ -686,6 +692,7 @@ export const himachalPackages = [
     duration: '3 Nights / 4 Days',
     pickup: 'Delhi/Chandigarh',
     destinations: ['Jibhi', 'Tirthan Valley', 'Shoja', 'Jalori Pass', 'Serolsar Lake'],
+    image: '/assests/Breathtaking%20Nature%20Landscape%20Image%20Ideas.jpg',
     highlights: [
       'Explore Jibhi Waterfall & serene Tirthan Valley landscapes',
       'Scenic drive to Shoja & high-altitude Jalori Pass adventure',
